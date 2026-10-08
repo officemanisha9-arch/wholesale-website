@@ -125,4 +125,15 @@ export const GlobalPavilionsFloor: React.FC = () => {
                 <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px', lineHeight: '19px' }}>
                   {pav.tagline}
                 </div>
-                <div style={{ display: 'flex
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', color: '#64748b', marginTop: '12px', borderTop: '1px solid #f1f5f9', paddingTop: '10px' }}>
+                  <span style={{ color: '#ff6600', fontWeight: 700 }}>{pav.suppliersCount} Exporters</span>
+                  <span style={{ fontWeight: 700, color: '#0f172a' }}>Source Now →</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

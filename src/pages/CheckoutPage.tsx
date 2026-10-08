@@ -164,50 +164,43 @@ export const CheckoutPage: React.FC = () => {
     }
   };
 
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(label);
-    showToast('Copied', `${label} copied to clipboard.`, 'info');
-    setTimeout(() => setCopiedField(null), 2000);
-  };
-
   if (cartSupplierGroups.length === 0) {
     return (
       <div style={{ padding: '80px 0', textAlign: 'center', minHeight: '75vh', display: 'flex', alignItems: 'center' }}>
         <div className="container">
           <div
             style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '60px 24px',
+              background: 'var(--bg-card)',
+              borderRadius: '24px',
+              padding: '60px 32px',
               maxWidth: '520px',
               margin: '0 auto',
-              border: '1px solid #e2e8f0',
-              boxShadow: 'var(--shadow-xs)'
+              border: '1px solid var(--border-color)',
+              boxShadow: 'var(--shadow-sm)'
             }}
           >
             <div
               style={{
-                width: '72px',
-                height: '72px',
+                width: '76px',
+                height: '76px',
                 borderRadius: '50%',
                 background: '#fff5eb',
-                color: '#ff6a00',
+                color: '#ff6600',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: '0 auto 16px auto'
+                margin: '0 auto 20px auto'
               }}
             >
-              <Package size={36} />
+              <Package size={38} />
             </div>
-            <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+            <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
               No Pending Checkout Items
             </h2>
-            <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '24px', lineHeight: '22px' }}>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '24px' }}>
               Your wholesale order contract queue is empty. Browse verified OEM manufacturers from the showroom.
             </p>
-            <Link to="/products" className="btn-primary" style={{ padding: '12px 28px' }}>
+            <Link to="/products" className="btn-primary" style={{ padding: '12px 28px', borderRadius: '12px' }}>
               Browse Wholesale Showroom
             </Link>
           </div>
@@ -272,7 +265,7 @@ export const CheckoutPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '28px 0 70px 0', background: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ padding: '28px 0 70px 0', background: 'var(--bg-app)', minHeight: '100vh' }}>
       <div className="container">
         
         {/* Top Header */}
@@ -282,23 +275,23 @@ export const CheckoutPage: React.FC = () => {
               <span className="badge-trade-assurance">
                 <ShieldCheck size={13} /> Trade Assurance Escrow
               </span>
-              <span style={{ fontSize: '12px', color: '#64748b' }}>
+              <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
                 🔒 256-Bit SSL Encrypted
               </span>
             </div>
-            <h1 style={{ fontSize: '26px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif' }}>
+            <h1 style={{ fontSize: '26px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
               Purchase Order &amp; Trade Assurance Checkout
             </h1>
           </div>
 
-          <div style={{ background: '#ffffff', padding: '8px 16px', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '12px' }}>
-            <span style={{ color: '#64748b' }}>Destination: </span>
-            <strong>{country.flag} {country.name}</strong> • <strong>{currencyConfig.code}</strong> ({currencyConfig.symbol})
+          <div style={{ background: 'var(--bg-card)', padding: '8px 16px', borderRadius: '12px', border: '1px solid var(--border-color)', fontSize: '12px', boxShadow: 'var(--shadow-xs)' }}>
+            <span style={{ color: 'var(--text-secondary)' }}>Destination: </span>
+            <strong style={{ color: 'var(--text-primary)' }}>{country.flag} {country.name}</strong> • <strong>{currencyConfig.code}</strong> ({currencyConfig.symbol})
           </div>
         </div>
 
         {/* Step Navigation Pill Bar */}
-        <div className="checkout-step-nav">
+        <div className="checkout-step-nav" style={{ marginBottom: '24px' }}>
           <div
             className={`checkout-step-item ${currentStep === 1 ? 'active' : 'completed'}`}
             style={{ cursor: 'pointer' }}
@@ -347,19 +340,19 @@ export const CheckoutPage: React.FC = () => {
               {/* STEP 1: DELIVERY DESTINATION */}
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  border: currentStep === 1 ? '2px solid #ff6600' : '1px solid #e2e8f0',
+                  background: 'var(--bg-card)',
+                  borderRadius: '20px',
+                  border: currentStep === 1 ? '2px solid #ff6600' : '1px solid var(--border-color)',
                   padding: '24px',
-                  boxShadow: 'var(--shadow-xs)'
+                  boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px', flexWrap: 'wrap', gap: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#fff5eb', color: '#ff6600', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '13px' }}>
                       1
                     </div>
-                    <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
                       Delivery Receiving Facility &amp; Port
                     </h3>
                   </div>
@@ -378,8 +371,9 @@ export const CheckoutPage: React.FC = () => {
                         gap: '4px',
                         background: '#fff5eb',
                         border: '1px solid #fed7aa',
-                        padding: '4px 10px',
-                        borderRadius: '6px'
+                        padding: '6px 12px',
+                        borderRadius: '8px',
+                        cursor: 'pointer'
                       }}
                       title="Open Interactive Map Port Selector"
                     >
@@ -400,8 +394,9 @@ export const CheckoutPage: React.FC = () => {
                         gap: '4px',
                         background: '#eff6ff',
                         border: '1px solid #bfdbfe',
-                        padding: '4px 10px',
-                        borderRadius: '6px'
+                        padding: '6px 12px',
+                        borderRadius: '8px',
+                        cursor: 'pointer'
                       }}
                       title="Auto-detect using device GPS coordinates"
                     >
@@ -412,7 +407,7 @@ export const CheckoutPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setIsAddingNewAddress(!isAddingNewAddress)}
-                      style={{ fontSize: '12px', color: '#64748b', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px', padding: '4px 8px' }}
+                      style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: 'transparent', border: 'none', cursor: 'pointer' }}
                     >
                       <Plus size={14} />
                       <span>{isAddingNewAddress ? 'Saved Hubs' : 'Custom Address'}</span>
@@ -423,10 +418,10 @@ export const CheckoutPage: React.FC = () => {
                 {/* ACTIVE LOGISTICS PORT & MAP PREVIEW STRIP */}
                 <div
                   style={{
-                    background: '#f8fafc',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '10px',
-                    padding: '12px 14px',
+                    background: 'var(--bg-app)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '14px 16px',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
@@ -436,18 +431,18 @@ export const CheckoutPage: React.FC = () => {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#ff6600', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Anchor size={16} />
+                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#ff6600', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Anchor size={18} />
                     </div>
                     <div>
-                      <div style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <span>{activeDeliveryHub.flag}</span>
                         <span>{activeDeliveryHub.name}</span>
-                        <span style={{ fontSize: '10px', background: '#0f172a', color: '#fff', padding: '1px 5px', borderRadius: '3px' }}>
+                        <span style={{ fontSize: '10px', background: '#0f172a', color: '#fff', padding: '1px 6px', borderRadius: '4px' }}>
                           {activeDeliveryHub.portCode}
                         </span>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#64748b' }}>
+                      <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>
                         📍 {activeDeliveryHub.city}, {activeDeliveryHub.country} • Air: <strong>{activeDeliveryHub.airTransitDays}</strong> | Ocean: <strong>{activeDeliveryHub.oceanTransitDays}</strong>
                       </div>
                     </div>
@@ -456,7 +451,7 @@ export const CheckoutPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setLocationMapModalOpen(true)}
-                    style={{ fontSize: '11px', color: '#ff6600', fontWeight: 700, textDecoration: 'underline' }}
+                    style={{ fontSize: '12px', color: '#ff6600', fontWeight: 700, background: 'transparent', border: 'none', cursor: 'pointer' }}
                   >
                     Change Port on Map →
                   </button>
@@ -476,7 +471,7 @@ export const CheckoutPage: React.FC = () => {
                           className={`checkout-card-option ${isSelected ? 'selected' : ''}`}
                         >
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                            <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                               <input
                                 type="radio"
                                 name="selectedAddress"
@@ -485,13 +480,13 @@ export const CheckoutPage: React.FC = () => {
                                 style={{ accentColor: '#ff6600', marginTop: '3px' }}
                               />
                               <div>
-                                <div style={{ fontWeight: 800, fontSize: '14px', color: '#0f172a', marginBottom: '2px' }}>
+                                <div style={{ fontWeight: 800, fontSize: '14px', color: 'var(--text-primary)', marginBottom: '2px' }}>
                                   {addr.title}
                                 </div>
-                                <div style={{ fontSize: '13px', color: '#334155' }}>
+                                <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
                                   {addr.fullName} • {addr.company}
                                 </div>
-                                <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
+                                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>
                                   📍 {addr.street}, {addr.city}, {addr.state} {addr.zipCode}, {addr.country} • Tel: {addr.phone}
                                 </div>
                               </div>
@@ -511,7 +506,7 @@ export const CheckoutPage: React.FC = () => {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div className="grid-cols-2-responsive" style={{ gap: '12px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                           Contact Full Name:
                         </label>
                         <input
@@ -519,11 +514,11 @@ export const CheckoutPage: React.FC = () => {
                           value={fullName}
                           onChange={e => setFullName(e.target.value)}
                           required
-                          style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                          style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                           Direct Phone:
                         </label>
                         <input
@@ -531,13 +526,13 @@ export const CheckoutPage: React.FC = () => {
                           value={phone}
                           onChange={e => setPhone(e.target.value)}
                           required
-                          style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                          style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                      <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                         Street Address &amp; Dock #:
                       </label>
                       <input
@@ -545,13 +540,13 @@ export const CheckoutPage: React.FC = () => {
                         value={street}
                         onChange={e => setStreet(e.target.value)}
                         required
-                        style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                        style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                       />
                     </div>
 
                     <div className="grid-cols-3-responsive" style={{ gap: '10px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                           City:
                         </label>
                         <input
@@ -559,11 +554,11 @@ export const CheckoutPage: React.FC = () => {
                           value={city}
                           onChange={e => setCity(e.target.value)}
                           required
-                          style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                          style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                           State:
                         </label>
                         <input
@@ -571,11 +566,11 @@ export const CheckoutPage: React.FC = () => {
                           value={state}
                           onChange={e => setState(e.target.value)}
                           required
-                          style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                          style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                         />
                       </div>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                        <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                           Postal Code:
                         </label>
                         <input
@@ -583,7 +578,7 @@ export const CheckoutPage: React.FC = () => {
                           value={zipCode}
                           onChange={e => setZipCode(e.target.value)}
                           required
-                          style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                          style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                         />
                       </div>
                     </div>
@@ -594,57 +589,57 @@ export const CheckoutPage: React.FC = () => {
               {/* STEP 2: PSI & COMPLIANCE */}
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  border: currentStep === 2 ? '2px solid #ff6600' : '1px solid #e2e8f0',
+                  background: 'var(--bg-card)',
+                  borderRadius: '20px',
+                  border: currentStep === 2 ? '2px solid #ff6600' : '1px solid var(--border-color)',
                   padding: '24px',
-                  boxShadow: 'var(--shadow-xs)'
+                  boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '14px' }}>
                   <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#fff5eb', color: '#ff6600', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '13px' }}>
                     2
                   </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a' }}>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
                     Pre-Shipment Inspection (PSI) &amp; PO Reference
                   </h3>
                 </div>
 
                 <div className="grid-cols-2-responsive" style={{ gap: '12px', marginBottom: '14px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                       Buyer Purchase Order (PO) #:
                     </label>
                     <input
                       type="text"
                       value={poNumber}
                       onChange={e => setPoNumber(e.target.value)}
-                      style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px' }}
+                      style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                       Trade Terms:
                     </label>
                     <input
                       type="text"
                       value="DDP (Delivered Duty Paid - All Tariffs Included)"
                       readOnly
-                      style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px', background: '#f8fafc', color: '#334155', fontWeight: 600 }}
+                      style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '12px', background: 'var(--bg-app)', color: 'var(--text-secondary)', fontWeight: 600 }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                     Factory Production Notes:
                   </label>
                   <textarea
                     rows={2}
                     value={inspectionNotes}
                     onChange={e => setInspectionNotes(e.target.value)}
-                    style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '13px', outline: 'none' }}
+                    style={{ width: '100%', padding: '10px 12px', borderRadius: '10px', border: '1px solid var(--border-color)', fontSize: '13px', outline: 'none', background: 'var(--bg-app)', color: 'var(--text-primary)' }}
                   />
                 </div>
               </div>
@@ -652,18 +647,18 @@ export const CheckoutPage: React.FC = () => {
               {/* STEP 3: PAYMENT METHOD */}
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  border: currentStep === 3 ? '2px solid #ff6600' : '1px solid #e2e8f0',
+                  background: 'var(--bg-card)',
+                  borderRadius: '20px',
+                  border: currentStep === 3 ? '2px solid #ff6600' : '1px solid var(--border-color)',
                   padding: '24px',
-                  boxShadow: 'var(--shadow-xs)'
+                  boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', borderBottom: '1px solid #f1f5f9', paddingBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '14px' }}>
                   <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#fff5eb', color: '#ff6600', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '13px' }}>
                     3
                   </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a' }}>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
                     Trade Assurance Escrow Payment Rail
                   </h3>
                 </div>
@@ -685,10 +680,10 @@ export const CheckoutPage: React.FC = () => {
                       />
                       <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <strong style={{ fontSize: '14px', color: '#0f172a' }}>Credit / Debit Card</strong>
-                          <div style={{ fontSize: '12px', color: '#64748b' }}>Visa, MasterCard, Amex • Instant production authorization</div>
+                          <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>Credit / Debit Card</strong>
+                          <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Visa, MasterCard, Amex • Instant production authorization</div>
                         </div>
-                        <span style={{ fontSize: '10px', background: '#ecfdf5', color: '#059669', padding: '2px 6px', borderRadius: '4px', fontWeight: 700 }}>
+                        <span style={{ fontSize: '10px', background: '#ecfdf5', color: '#059669', padding: '2px 8px', borderRadius: '6px', fontWeight: 800 }}>
                           INSTANT
                         </span>
                       </div>
@@ -710,10 +705,10 @@ export const CheckoutPage: React.FC = () => {
                       />
                       <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <strong style={{ fontSize: '14px', color: '#0f172a' }}>International Wire Transfer (T/T via Citibank Escrow)</strong>
-                          <div style={{ fontSize: '12px', color: '#64748b' }}>Recommended for large orders &gt; $5,000</div>
+                          <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>International Wire Transfer (T/T via Citibank Escrow)</strong>
+                          <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Recommended for large orders &gt; $5,000</div>
                         </div>
-                        <span style={{ fontSize: '10px', background: '#eff6ff', color: '#1d4ed8', padding: '2px 6px', borderRadius: '4px', fontWeight: 700 }}>
+                        <span style={{ fontSize: '10px', background: '#eff6ff', color: '#1d4ed8', padding: '2px 8px', borderRadius: '6px', fontWeight: 800 }}>
                           CITIBANK ESCROW
                         </span>
                       </div>
@@ -735,10 +730,10 @@ export const CheckoutPage: React.FC = () => {
                       />
                       <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <strong style={{ fontSize: '14px', color: '#0f172a' }}>Alibaba Pay Later (Net 60 Business Credit)</strong>
-                          <div style={{ fontSize: '12px', color: '#64748b' }}>Pay 60 days post-dispatch • Available credit: $42,500.00</div>
+                          <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>Alibaba Pay Later (Net 60 Business Credit)</strong>
+                          <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Pay 60 days post-dispatch • Available credit: $42,500.00</div>
                         </div>
-                        <span style={{ fontSize: '10px', background: '#fdf2f8', color: '#be185d', padding: '2px 6px', borderRadius: '4px', fontWeight: 700 }}>
+                        <span style={{ fontSize: '10px', background: '#fdf2f8', color: '#be185d', padding: '2px 8px', borderRadius: '6px', fontWeight: 800 }}>
                           0% APR NET 60
                         </span>
                       </div>
@@ -752,19 +747,19 @@ export const CheckoutPage: React.FC = () => {
             <div style={{ position: 'sticky', top: '24px' }}>
               <div
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  border: '1px solid #fed7aa',
-                  padding: '22px',
-                  boxShadow: 'var(--shadow-sm)',
+                  background: 'var(--bg-card)',
+                  borderRadius: '20px',
+                  border: '1px solid var(--border-color)',
+                  padding: '24px',
+                  boxShadow: 'var(--shadow-md)',
                   marginBottom: '16px'
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', borderBottom: '1px solid #f1f5f9', paddingBottom: '10px' }}>
-                  <h3 style={{ fontSize: '17px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
+                  <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
                     Contract Summary
                   </h3>
-                  <span style={{ fontSize: '11px', background: '#fff5eb', color: '#ff6600', padding: '2px 8px', borderRadius: '12px', fontWeight: 700 }}>
+                  <span style={{ fontSize: '11px', background: '#fff5eb', color: '#ff6600', padding: '3px 10px', borderRadius: '999px', fontWeight: 800 }}>
                     {cartSupplierGroups.length} Factory Dispatch
                   </span>
                 </div>
@@ -779,9 +774,11 @@ export const CheckoutPage: React.FC = () => {
                         onClick={() => handleApplyPreset(v.code, v.discount)}
                         className="voucher-chip-btn"
                         style={{
-                          background: couponCode === v.code ? '#fff5eb' : '#f8fafc',
-                          borderColor: couponCode === v.code ? '#ff6600' : '#cbd5e1',
-                          color: couponCode === v.code ? '#ff6600' : '#475569'
+                          background: couponCode === v.code ? '#fff5eb' : 'var(--bg-app)',
+                          borderColor: couponCode === v.code ? '#ff6600' : 'var(--border-color)',
+                          color: couponCode === v.code ? '#ff6600' : 'var(--text-secondary)',
+                          borderRadius: '8px',
+                          padding: '4px 10px'
                         }}
                       >
                         <Sparkles size={11} color="#ff6600" />
@@ -796,13 +793,13 @@ export const CheckoutPage: React.FC = () => {
                       value={couponCode}
                       onChange={e => setCouponCode(e.target.value)}
                       placeholder="Voucher Code: ALIBABA100"
-                      style={{ flex: 1, padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
+                      style={{ flex: 1, padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--border-color)', fontSize: '12px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                     />
                     <button
                       type="button"
                       onClick={handleApplyCoupon}
                       className="btn-secondary"
-                      style={{ padding: '6px 14px', fontSize: '12px' }}
+                      style={{ padding: '6px 14px', fontSize: '12px', borderRadius: '8px' }}
                     >
                       Apply
                     </button>
@@ -810,14 +807,14 @@ export const CheckoutPage: React.FC = () => {
                 </div>
 
                 {/* Price Breakdown */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: '#475569', borderTop: '1px solid #f1f5f9', paddingTop: '12px', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)', borderTop: '1px solid var(--border-color)', paddingTop: '14px', marginBottom: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Wholesale Subtotal ({cartCount} units):</span>
-                    <span style={{ fontWeight: 700, color: '#0f172a' }}>{formatPrice(itemsSubtotal)}</span>
+                    <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{formatPrice(itemsSubtotal)}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Door Freight (DDP):</span>
-                    <span style={{ fontWeight: 700, color: '#0f172a' }}>{formatPrice(shippingSubtotal)}</span>
+                    <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{formatPrice(shippingSubtotal)}</span>
                   </div>
                   {isCouponApplied && (
                     <div style={{ display: 'flex', justifyContent: 'space-between', color: '#059669', fontWeight: 700 }}>
@@ -827,11 +824,11 @@ export const CheckoutPage: React.FC = () => {
                   )}
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: '#059669', fontSize: '12px' }}>
                     <span>Trade Assurance Escrow:</span>
-                    <span style={{ fontWeight: 700 }}>FREE ($0.00)</span>
+                    <span style={{ fontWeight: 800 }}>FREE ($0.00)</span>
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1.5px solid #e2e8f0', paddingTop: '12px', marginTop: '4px' }}>
-                    <span style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a' }}>Total Escrow Value:</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1.5px solid var(--border-color)', paddingTop: '14px', marginTop: '4px' }}>
+                    <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)' }}>Total Escrow Value:</span>
                     <span style={{ fontSize: '24px', fontWeight: 900, color: '#ff6600', fontFamily: 'Outfit, sans-serif' }}>
                       {formatPrice(finalTotalAmount)}
                     </span>
@@ -839,7 +836,7 @@ export const CheckoutPage: React.FC = () => {
                 </div>
 
                 {/* Agreement */}
-                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '11px', color: '#475569', cursor: 'pointer', marginBottom: '16px', lineHeight: '16px' }}>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '11px', color: 'var(--text-secondary)', cursor: 'pointer', marginBottom: '16px', lineHeight: '18px' }}>
                   <input
                     type="checkbox"
                     checked={acceptTerms}
@@ -861,7 +858,7 @@ export const CheckoutPage: React.FC = () => {
                     padding: '14px 0',
                     fontSize: '15px',
                     fontWeight: 800,
-                    borderRadius: '10px'
+                    borderRadius: '12px'
                   }}
                 >
                   {isProcessing ? (
@@ -879,12 +876,12 @@ export const CheckoutPage: React.FC = () => {
               </div>
 
               {/* Guarantees Box */}
-              <div className="trade-guarantee-box">
-                <div style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px', color: '#065f46', fontSize: '12px' }}>
+              <div className="trade-guarantee-box" style={{ borderRadius: '16px' }}>
+                <div style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', color: '#065f46', fontSize: '12px' }}>
                   <ShieldCheck size={16} color="#059669" />
                   <span>Buyer Protection Guaranteed</span>
                 </div>
-                <div style={{ fontSize: '11px', color: '#047857', lineHeight: '16px' }}>
+                <div style={{ fontSize: '11px', color: '#047857', lineHeight: '18px' }}>
                   • 100% money back if goods not as agreed<br />
                   • 10% refund on late supplier shipments
                 </div>

@@ -82,34 +82,38 @@ export const AISourcingPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '24px 0 60px 0' }}>
+    <div style={{ padding: '28px 0 70px 0', minHeight: '100vh' }}>
       <div className="container">
         {/* Header Hero */}
         <div
           style={{
-            background: 'linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #3b0764 100%)',
-            borderRadius: '16px',
-            padding: '36px 40px',
+            background: 'linear-gradient(135deg, #090d16 0%, #15143a 50%, #290d38 100%)',
+            borderRadius: '22px',
+            padding: '40px 44px',
             color: '#ffffff',
             marginBottom: '32px',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.25)'
+            boxShadow: 'var(--shadow-lg), 0 0 30px rgba(168, 85, 247, 0.15)',
+            border: '1px solid rgba(255, 255, 255, 0.12)'
           }}
         >
-          <div style={{ maxWidth: '680px' }}>
+          <div style={{ maxWidth: '680px', position: 'relative', zIndex: 2 }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: 'linear-gradient(90deg, #fa6400, #ff8c00)',
-                color: '#fff',
+                background: 'rgba(255, 102, 0, 0.25)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255, 102, 0, 0.6)',
+                color: '#ff9a4d',
                 fontSize: '11px',
                 fontWeight: 800,
-                padding: '3px 10px',
-                borderRadius: '12px',
-                marginBottom: '10px'
+                padding: '4px 12px',
+                borderRadius: '20px',
+                marginBottom: '14px',
+                letterSpacing: '0.6px'
               }}
             >
               <Sparkles size={12} />
@@ -121,15 +125,16 @@ export const AISourcingPage: React.FC = () => {
                 fontSize: '32px',
                 fontWeight: 800,
                 lineHeight: '1.25',
-                marginBottom: '10px',
-                fontFamily: 'Outfit, sans-serif'
+                marginBottom: '12px',
+                fontFamily: 'Outfit, sans-serif',
+                letterSpacing: '-0.02em'
               }}
             >
               Autonomous B2B Sourcing &amp; Factory Engineering AI
             </h1>
 
             <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: '22px' }}>
-              Simply describe what you want to create. Accio reverse-engineers the Bill of Materials (BoM), calculates unit cost bounds, and matches verified OEM factories with exact technical capabilities.
+              Describe what you want to create. Accio reverse-engineers the Bill of Materials (BoM), calculates unit cost bounds, and matches verified OEM factories with exact technical capabilities.
             </p>
           </div>
         </div>
@@ -138,16 +143,16 @@ export const AISourcingPage: React.FC = () => {
         <div
           style={{
             background: '#ffffff',
-            borderRadius: '16px',
-            padding: '24px',
+            borderRadius: '20px',
+            padding: '28px',
             border: '1.5px solid #fed7aa',
             boxShadow: 'var(--shadow-sm)',
-            marginBottom: '32px'
+            marginBottom: '36px'
           }}
         >
           <form onSubmit={handleGenerate}>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: 800, color: '#111', marginBottom: '8px' }}>
-              Describe Your Sourcing Goal or Upload Product Sketch:
+            <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 800, color: '#0f172a', marginBottom: '10px' }}>
+              Describe Your Sourcing Goal or Specifications:
             </label>
             <div style={{ position: 'relative' }}>
               <textarea
@@ -156,37 +161,50 @@ export const AISourcingPage: React.FC = () => {
                 onChange={e => setInputPrompt(e.target.value)}
                 style={{
                   width: '100%',
-                  padding: '14px 16px',
-                  borderRadius: '10px',
-                  border: '1.5px solid #e5e7eb',
+                  padding: '14px 18px',
+                  borderRadius: '12px',
+                  border: '1.5px solid #e2e8f0',
                   fontSize: '14px',
-                  lineHeight: '1.5',
+                  lineHeight: '1.6',
                   outline: 'none',
-                  resize: 'vertical'
+                  resize: 'vertical',
+                  color: '#0f172a'
                 }}
               />
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px' }}>
-              <div style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#666' }}>
-                <span style={{ fontWeight: 600, color: '#ff6a00' }}>Quick Presets:</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '14px', flexWrap: 'wrap', gap: '12px' }}>
+              <div style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#64748b', alignItems: 'center', flexWrap: 'wrap' }}>
+                <span style={{ fontWeight: 700, color: '#ff6600' }}>Presets:</span>
                 {[
                   '1000 Bamboo Wireless Charger Hub',
                   '450 GSM Oversized Streetwear Hoodie',
                   '3000W Fiber Laser Cutting CNC',
-                  'Luxury Eco-friendly Rigid Gift Boxes'
+                  'Luxury Rigid Gift Boxes'
                 ].map((preset, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setInputPrompt(`I want to source ${preset} with custom branding, low sample lead time, and DDP freight to my port.`)}
                     style={{
-                      background: '#f9fafb',
-                      border: '1px solid #e5e7eb',
-                      padding: '2px 8px',
-                      borderRadius: '12px',
-                      fontSize: '11px',
-                      color: '#4b5563'
+                      background: '#f8fafc',
+                      border: '1px solid #e2e8f0',
+                      padding: '4px 10px',
+                      borderRadius: '14px',
+                      fontSize: '11.5px',
+                      color: '#475569',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease'
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = '#fff5eb';
+                      e.currentTarget.style.color = '#ff6600';
+                      e.currentTarget.style.borderColor = '#fed7aa';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = '#f8fafc';
+                      e.currentTarget.style.color = '#475569';
+                      e.currentTarget.style.borderColor = '#e2e8f0';
                     }}
                   >
                     {preset}
@@ -198,16 +216,16 @@ export const AISourcingPage: React.FC = () => {
                 type="submit"
                 disabled={isGenerating}
                 className="btn-primary"
-                style={{ padding: '10px 24px', fontSize: '14px' }}
+                style={{ padding: '11px 26px', fontSize: '14px', borderRadius: '12px' }}
               >
                 {isGenerating ? (
                   <>
                     <RefreshCw size={15} style={{ animation: 'spin 1s linear infinite' }} />
-                    <span>Analyzing Sourcing Specs...</span>
+                    <span>Analyzing Specs...</span>
                   </>
                 ) : (
                   <>
-                    <Sparkles size={16} />
+                    <Sparkles size={15} />
                     <span>Generate Sourcing Plan</span>
                   </>
                 )}
@@ -222,55 +240,55 @@ export const AISourcingPage: React.FC = () => {
           <div
             style={{
               background: '#ffffff',
-              borderRadius: '16px',
-              border: '1px solid #e5e7eb',
-              padding: '28px',
-              boxShadow: 'var(--shadow-sm)'
+              borderRadius: '20px',
+              border: '1px solid #e2e8f0',
+              padding: '30px',
+              boxShadow: 'var(--shadow-xs)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-              <Cpu size={22} color="#ff6a00" />
-              <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#111' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+              <Cpu size={22} color="#ff6600" />
+              <h3 style={{ fontSize: '19px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif' }}>
                 AI Bill of Materials (BoM) &amp; Cost Engineering
               </h3>
             </div>
 
             <div
               style={{
-                background: '#fff8f2',
-                padding: '14px',
-                borderRadius: '8px',
+                background: 'linear-gradient(135deg, #fffbf7 0%, #fff7ed 100%)',
+                padding: '16px 20px',
+                borderRadius: '14px',
                 border: '1px solid #fed7aa',
-                marginBottom: '18px'
+                marginBottom: '20px'
               }}
             >
-              <div style={{ fontSize: '12px', color: '#8d4e1d', fontWeight: 700 }}>PREDICTED PRODUCTION TARGET:</div>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#ff6a00' }}>
+              <div style={{ fontSize: '11.5px', color: '#9a3412', fontWeight: 800, letterSpacing: '0.5px' }}>PREDICTED PRODUCTION TARGET:</div>
+              <div style={{ fontSize: '22px', fontWeight: 900, color: '#ff6600', fontFamily: 'Outfit, sans-serif', marginTop: '2px' }}>
                 {analysisResult.targetPriceEst}
               </div>
-              <div style={{ fontSize: '12px', color: '#666' }}>
+              <div style={{ fontSize: '12.5px', color: '#64748b', marginTop: '2px' }}>
                 Recommended Production Batch: ≥ {analysisResult.recommendedMoq} units
               </div>
             </div>
 
-            <div style={{ marginBottom: '20px' }}>
-              <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#222', marginBottom: '10px' }}>
+            <div style={{ marginBottom: '22px' }}>
+              <h4 style={{ fontSize: '14px', fontWeight: 800, color: '#0f172a', marginBottom: '12px' }}>
                 Decomposed Component Breakdown:
               </h4>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12.5px', borderRadius: '10px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
                 <thead>
-                  <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e5e7eb' }}>
-                    <th style={{ padding: '8px', textAlign: 'left', color: '#666' }}>Component</th>
-                    <th style={{ padding: '8px', textAlign: 'left', color: '#666' }}>Material &amp; Process</th>
-                    <th style={{ padding: '8px', textAlign: 'right', color: '#666' }}>Est. Cost</th>
+                  <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
+                    <th style={{ padding: '10px 12px', textAlign: 'left', color: '#64748b', fontWeight: 700 }}>Component</th>
+                    <th style={{ padding: '10px 12px', textAlign: 'left', color: '#64748b', fontWeight: 700 }}>Material &amp; Process</th>
+                    <th style={{ padding: '10px 12px', textAlign: 'right', color: '#64748b', fontWeight: 700 }}>Est. Cost</th>
                   </tr>
                 </thead>
                 <tbody>
                   {analysisResult.materialsBreakdown.map((row: any, idx: number) => (
-                    <tr key={idx} style={{ borderBottom: '1px solid #f0f0f0' }}>
-                      <td style={{ padding: '10px 8px', fontWeight: 700, color: '#111' }}>{row.component}</td>
-                      <td style={{ padding: '10px 8px', color: '#555' }}>{row.material}</td>
-                      <td style={{ padding: '10px 8px', textAlign: 'right', fontWeight: 700, color: '#ff6a00' }}>
+                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                      <td style={{ padding: '11px 12px', fontWeight: 700, color: '#0f172a' }}>{row.component}</td>
+                      <td style={{ padding: '11px 12px', color: '#475569' }}>{row.material}</td>
+                      <td style={{ padding: '11px 12px', textAlign: 'right', fontWeight: 800, color: '#ff6600' }}>
                         {row.costEst}
                       </td>
                     </tr>
@@ -280,20 +298,21 @@ export const AISourcingPage: React.FC = () => {
             </div>
 
             <div>
-              <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#222', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '14px', fontWeight: 800, color: '#0f172a', marginBottom: '10px' }}>
                 Target Regulatory Standards:
               </h4>
-              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 {analysisResult.complianceRequirements.map((c: string, idx: number) => (
                   <span
                     key={idx}
                     style={{
                       background: '#ecfdf5',
                       color: '#047857',
-                      fontSize: '11px',
+                      fontSize: '11.5px',
                       fontWeight: 700,
-                      padding: '3px 8px',
-                      borderRadius: '4px'
+                      padding: '4px 10px',
+                      borderRadius: '8px',
+                      border: '1px solid #a7f3d0'
                     }}
                   >
                     ✓ {c}
@@ -307,15 +326,15 @@ export const AISourcingPage: React.FC = () => {
           <div
             style={{
               background: '#ffffff',
-              borderRadius: '16px',
-              border: '1px solid #e5e7eb',
-              padding: '28px',
-              boxShadow: 'var(--shadow-sm)'
+              borderRadius: '20px',
+              border: '1px solid #e2e8f0',
+              padding: '30px',
+              boxShadow: 'var(--shadow-xs)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
               <Building2 size={22} color="#059669" />
-              <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#111' }}>
+              <h3 style={{ fontSize: '19px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif' }}>
                 AI Matched Verified OEM Manufacturers
               </h3>
             </div>
@@ -325,19 +344,19 @@ export const AISourcingPage: React.FC = () => {
                 <div
                   key={idx}
                   style={{
-                    background: '#f9fafb',
-                    borderRadius: '12px',
-                    border: '1px solid #e5e7eb',
-                    padding: '16px'
+                    background: '#f8fafc',
+                    borderRadius: '16px',
+                    border: '1px solid #e2e8f0',
+                    padding: '18px'
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <span>{match.supplier.flag}</span>
-                        <strong style={{ fontSize: '14px', color: '#111' }}>{match.supplier.name}</strong>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ fontSize: '16px' }}>{match.supplier.flag}</span>
+                        <strong style={{ fontSize: '14.5px', color: '#0f172a' }}>{match.supplier.name}</strong>
                       </div>
-                      <div style={{ display: 'flex', gap: '6px', marginTop: '3px' }}>
+                      <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
                         <span className="badge-verified">{match.supplier.years} YRS</span>
                         <span className="badge-trade-assurance">Trade Assurance</span>
                       </div>
@@ -347,46 +366,47 @@ export const AISourcingPage: React.FC = () => {
                       style={{
                         background: '#ecfdf5',
                         color: '#059669',
-                        fontSize: '11px',
+                        fontSize: '11.5px',
                         fontWeight: 800,
-                        padding: '2px 8px',
-                        borderRadius: '12px'
+                        padding: '3px 10px',
+                        borderRadius: '14px',
+                        border: '1px solid #a7f3d0'
                       }}
                     >
                       {match.matchScore}% Match
                     </div>
                   </div>
 
-                  <p style={{ fontSize: '12px', color: '#555', marginBottom: '10px', lineHeight: '18px' }}>
+                  <p style={{ fontSize: '12.5px', color: '#475569', marginBottom: '12px', lineHeight: '19px' }}>
                     {match.highlight}
                   </p>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', marginBottom: '12px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', marginBottom: '14px', background: '#ffffff', padding: '8px 12px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                     <div>
-                      <span style={{ color: '#666' }}>Est. Unit Quote: </span>
-                      <strong style={{ color: '#ff6a00', fontSize: '15px' }}>{formatPrice(match.unitQuote)}</strong>
+                      <span style={{ color: '#64748b' }}>Unit Quote: </span>
+                      <strong style={{ color: '#ff6600', fontSize: '16px', fontFamily: 'Outfit, sans-serif' }}>{formatPrice(match.unitQuote)}</strong>
                     </div>
                     <div>
-                      <span style={{ color: '#666' }}>Sample Lead Time: </span>
-                      <strong>{match.sampleDays} Days</strong>
+                      <span style={{ color: '#64748b' }}>Sample: </span>
+                      <strong style={{ color: '#0f172a' }}>{match.sampleDays} Days</strong>
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                     <button
                       onClick={() => startChatWithSupplier(match.supplier.id, undefined, `Hello! We reviewed your factory profile via Accio AI Sourcing for: "${inputPrompt}". Please send sample options.`)}
                       className="btn-primary"
-                      style={{ padding: '7px 0', fontSize: '12px' }}
+                      style={{ padding: '8px 0', fontSize: '12px', borderRadius: '8px' }}
                     >
-                      <Zap size={12} />
-                      <span>Instant Factory Inquiry</span>
+                      <Zap size={13} />
+                      <span>Instant Inquiry</span>
                     </button>
                     <button
                       onClick={() => {
                         navigate({ to: '/manufacturers' });
                       }}
                       className="btn-secondary"
-                      style={{ padding: '7px 0', fontSize: '12px' }}
+                      style={{ padding: '8px 0', fontSize: '12px', borderRadius: '8px' }}
                     >
                       Audit Showroom
                     </button>
@@ -398,7 +418,7 @@ export const AISourcingPage: React.FC = () => {
             <button
               onClick={handleCreateAutoRFQ}
               className="btn-dark"
-              style={{ width: '100%', padding: '12px 0', fontSize: '14px' }}
+              style={{ width: '100%', padding: '13px 0', fontSize: '14px', borderRadius: '12px' }}
             >
               <Send size={15} />
               <span>Convert AI Sourcing Plan to Public RFQ</span>

@@ -60,42 +60,42 @@ export const MessagesPage: React.FC = () => {
   );
 
   return (
-    <div style={{ padding: '24px 0 60px 0', background: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ padding: '24px 0 60px 0', background: 'var(--bg-app)', minHeight: '100vh' }}>
       <div className="container">
         
         {/* Header */}
         <div style={{ marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748b', marginBottom: '6px' }}>
-            <Link to="/" style={{ color: '#64748b' }}>Home</Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '6px' }}>
+            <Link to="/" style={{ color: 'var(--text-secondary)' }}>Home</Link>
             <ChevronRight size={12} />
-            <span style={{ color: '#0f172a', fontWeight: 600 }}>Supplier Trade Messenger</span>
+            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Supplier Trade Messenger</span>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
             <div>
-              <h1 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', marginBottom: '2px' }}>
+              <h1 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif', marginBottom: '2px' }}>
                 Supplier Trade Messenger &amp; Inquiries
               </h1>
-              <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>
                 Direct real-time negotiations with verified Gold Supplier factory representatives.
               </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#059669', background: '#ecfdf5', padding: '6px 14px', borderRadius: '20px', border: '1px solid #a7f3d0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#059669', background: 'rgba(5, 150, 105, 0.08)', padding: '6px 14px', borderRadius: '999px', border: '1px solid rgba(5, 150, 105, 0.25)' }}>
               <ShieldCheck size={16} />
-              <span style={{ fontWeight: 700 }}>Trade Assurance Quotations Protected</span>
+              <span style={{ fontWeight: 800 }}>Trade Assurance Quotations Protected</span>
             </div>
           </div>
         </div>
 
         {/* Messenger Container */}
-        <div className="messenger-layout">
+        <div className="messenger-layout" style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-md)' }}>
           
           {/* Left Conversations Sidebar */}
           <div
             style={{
-              borderRight: '1px solid #e2e8f0',
-              background: '#ffffff',
+              borderRight: '1px solid var(--border-color)',
+              background: 'var(--bg-card)',
               display: 'flex',
               flexDirection: 'column',
               height: '100%',
@@ -103,14 +103,14 @@ export const MessagesPage: React.FC = () => {
             }}
           >
             {/* Sidebar Header */}
-            <div style={{ padding: '16px', borderBottom: '1px solid #f1f5f9' }}>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: '#0f172a', marginBottom: '10px' }}>
+            <div style={{ padding: '16px', borderBottom: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px', fontFamily: 'Outfit, sans-serif' }}>
                 Supplier Chats ({conversations.length})
               </div>
 
               {/* Search Filter */}
               <div style={{ position: 'relative' }}>
-                <Search size={14} color="#94a3b8" style={{ position: 'absolute', left: '10px', top: '9px' }} />
+                <Search size={14} color="#94a3b8" style={{ position: 'absolute', left: '10px', top: '10px' }} />
                 <input
                   type="text"
                   value={searchFilter}
@@ -118,11 +118,12 @@ export const MessagesPage: React.FC = () => {
                   placeholder="Search supplier..."
                   style={{
                     width: '100%',
-                    padding: '6px 10px 6px 30px',
-                    borderRadius: '6px',
-                    border: '1px solid #cbd5e1',
+                    padding: '8px 10px 8px 32px',
+                    borderRadius: '8px',
+                    border: '1px solid var(--border-color)',
                     fontSize: '12px',
-                    background: '#f8fafc',
+                    background: 'var(--bg-app)',
+                    color: 'var(--text-primary)',
                     outline: 'none'
                   }}
                 />
@@ -140,9 +141,9 @@ export const MessagesPage: React.FC = () => {
                     style={{
                       padding: '14px 16px',
                       cursor: 'pointer',
-                      background: isSelected ? '#fff5eb' : '#ffffff',
+                      background: isSelected ? '#fff5eb' : 'transparent',
                       borderLeft: isSelected ? '3px solid #ff6600' : '3px solid transparent',
-                      borderBottom: '1px solid #f1f5f9',
+                      borderBottom: '1px solid var(--border-color)',
                       display: 'flex',
                       gap: '12px',
                       alignItems: 'center',
@@ -153,7 +154,7 @@ export const MessagesPage: React.FC = () => {
                       <img
                         src={conv.supplier.avatar}
                         alt={conv.supplier.name}
-                        style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover', border: '1px solid #e2e8f0' }}
+                        style={{ width: '42px', height: '42px', borderRadius: '12px', objectFit: 'cover', border: '1px solid var(--border-color)' }}
                       />
                       <div
                         style={{
@@ -171,14 +172,14 @@ export const MessagesPage: React.FC = () => {
 
                     <div style={{ flex: 1, overflow: 'hidden' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3px' }}>
-                        <span style={{ fontSize: '13px', fontWeight: isSelected ? 800 : 600, color: '#0f172a' }} className="truncate">
+                        <span style={{ fontSize: '13px', fontWeight: isSelected ? 800 : 600, color: 'var(--text-primary)' }} className="truncate">
                           {conv.supplier.name}
                         </span>
-                        <span style={{ fontSize: '10px', color: '#94a3b8', flexShrink: 0, marginLeft: '4px' }}>
+                        <span style={{ fontSize: '10px', color: 'var(--text-secondary)', flexShrink: 0, marginLeft: '4px' }}>
                           {conv.lastTimestamp}
                         </span>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#64748b' }} className="truncate">
+                      <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }} className="truncate">
                         {conv.lastMessage}
                       </div>
                     </div>
@@ -196,7 +197,7 @@ export const MessagesPage: React.FC = () => {
                 flexDirection: 'column',
                 height: '100%',
                 minHeight: 0,
-                background: '#ffffff',
+                background: 'var(--bg-card)',
                 overflow: 'hidden'
               }}
             >
@@ -204,11 +205,11 @@ export const MessagesPage: React.FC = () => {
               <div
                 style={{
                   padding: '14px 20px',
-                  borderBottom: '1px solid #e2e8f0',
+                  borderBottom: '1px solid var(--border-color)',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  background: '#ffffff',
+                  background: 'var(--bg-card)',
                   flexWrap: 'wrap',
                   gap: '8px'
                 }}
@@ -217,17 +218,17 @@ export const MessagesPage: React.FC = () => {
                   <img
                     src={activeConv.supplier.avatar}
                     alt={activeConv.supplier.name}
-                    style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover', border: '1px solid #e2e8f0' }}
+                    style={{ width: '42px', height: '42px', borderRadius: '12px', objectFit: 'cover', border: '1px solid var(--border-color)' }}
                   />
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a' }}>
+                      <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
                         {activeConv.supplier.name}
                       </span>
                       <span className="badge-verified">{activeConv.supplier.years} YRS</span>
                       <span className="badge-trade-assurance">Trade Assurance</span>
                     </div>
-                    <div style={{ fontSize: '11px', color: '#059669', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+                    <div style={{ fontSize: '11px', color: '#059669', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px', fontWeight: 600 }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#059669' }} />
                       <span>Online • Response time: {activeConv.supplier.responseTime} • {activeConv.supplier.city} ({activeConv.supplier.flag})</span>
                     </div>
@@ -238,7 +239,7 @@ export const MessagesPage: React.FC = () => {
                   <Link
                     to="/manufacturers"
                     className="btn-secondary"
-                    style={{ padding: '5px 12px', fontSize: '11px' }}
+                    style={{ padding: '6px 14px', fontSize: '11px', borderRadius: '8px' }}
                   >
                     <Building2 size={13} />
                     <span>Factory Profile</span>
@@ -247,7 +248,7 @@ export const MessagesPage: React.FC = () => {
                   <Link
                     to="/rfq"
                     className="btn-secondary"
-                    style={{ padding: '5px 12px', fontSize: '11px', borderColor: '#ff6600', color: '#ff6600' }}
+                    style={{ padding: '6px 14px', fontSize: '11px', borderColor: '#ff6600', color: '#ff6600', borderRadius: '8px' }}
                   >
                     <FileText size={13} />
                     <span>Request Quotation</span>
@@ -265,7 +266,7 @@ export const MessagesPage: React.FC = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '14px',
-                  background: '#f8fafc'
+                  background: 'var(--bg-app)'
                 }}
               >
                 {activeConv.messages.map(msg => {
@@ -283,21 +284,21 @@ export const MessagesPage: React.FC = () => {
                         <img
                           src={msg.avatar}
                           alt=""
-                          style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, marginTop: '2px' }}
+                          style={{ width: '34px', height: '34px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, marginTop: '2px', border: '1px solid var(--border-color)' }}
                         />
                       )}
 
                       <div style={{ maxWidth: '75%' }}>
                         <div
                           style={{
-                            padding: '12px 16px',
-                            borderRadius: isBuyer ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
-                            background: isBuyer ? '#ff6600' : '#ffffff',
-                            color: isBuyer ? '#ffffff' : '#0f172a',
+                            padding: '12px 18px',
+                            borderRadius: isBuyer ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                            background: isBuyer ? 'linear-gradient(135deg, #ff6600, #ff8533)' : 'var(--bg-card)',
+                            color: isBuyer ? '#ffffff' : 'var(--text-primary)',
                             fontSize: '13px',
-                            lineHeight: '20px',
+                            lineHeight: '22px',
                             boxShadow: 'var(--shadow-xs)',
-                            border: isBuyer ? 'none' : '1px solid #e2e8f0'
+                            border: isBuyer ? 'none' : '1px solid var(--border-color)'
                           }}
                         >
                           {msg.text}
@@ -307,10 +308,10 @@ export const MessagesPage: React.FC = () => {
                             <div
                               style={{
                                 marginTop: '12px',
-                                padding: '14px',
+                                padding: '16px',
                                 background: '#fff9f4',
                                 border: '1.5px solid #fed7aa',
-                                borderRadius: '10px',
+                                borderRadius: '14px',
                                 color: '#0f172a'
                               }}
                             >
@@ -320,9 +321,9 @@ export const MessagesPage: React.FC = () => {
                               </div>
                               <div style={{ fontSize: '13px', display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
                                 <span>Quantity: <strong>{msg.quoteDetails.qty} pcs</strong></span>
-                                <span>Unit Price: <strong style={{ color: '#ff6600' }}>{formatPrice(msg.quoteDetails.unitPrice)}</strong></span>
+                                <span>Unit Price: <strong style={{ color: '#ff6600', fontFamily: 'Outfit, sans-serif', fontSize: '15px' }}>{formatPrice(msg.quoteDetails.unitPrice)}</strong></span>
                               </div>
-                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '12px' }}>
+                              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '14px' }}>
                                 <span>Air Freight DDP: <strong>{formatPrice(msg.quoteDetails.shippingCost)}</strong> ({msg.quoteDetails.leadTime})</span>
                               </div>
                               <button
@@ -333,7 +334,7 @@ export const MessagesPage: React.FC = () => {
                                   showToast('Quotation Added to Cart', `Added ${msg.quoteDetails!.qty} pcs at wholesale price to your cart.`, 'success');
                                 }}
                                 className="btn-primary"
-                                style={{ width: '100%', padding: '8px 0', fontSize: '13px' }}
+                                style={{ width: '100%', padding: '10px 0', fontSize: '13px', borderRadius: '10px' }}
                               >
                                 Accept Quote &amp; Add to Cart
                               </button>
@@ -343,7 +344,7 @@ export const MessagesPage: React.FC = () => {
                         <div
                           style={{
                             fontSize: '10px',
-                            color: '#94a3b8',
+                            color: 'var(--text-secondary)',
                             marginTop: '4px',
                             textAlign: isBuyer ? 'right' : 'left'
                           }}
@@ -360,16 +361,16 @@ export const MessagesPage: React.FC = () => {
               {/* Quick Negotiation Prompt Chips */}
               <div
                 style={{
-                  padding: '8px 16px',
-                  background: '#ffffff',
-                  borderTop: '1px solid #f1f5f9',
+                  padding: '10px 18px',
+                  background: 'var(--bg-card)',
+                  borderTop: '1px solid var(--border-color)',
                   display: 'flex',
-                  gap: '6px',
+                  gap: '8px',
                   overflowX: 'auto',
                   whiteSpace: 'nowrap'
                 }}
               >
-                <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 700, alignSelf: 'center' }}>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, alignSelf: 'center' }}>
                   Quick Inquiries:
                 </span>
                 {[
@@ -383,13 +384,13 @@ export const MessagesPage: React.FC = () => {
                     type="button"
                     onClick={() => handleQuickNegotiate(chip)}
                     style={{
-                      padding: '4px 10px',
-                      borderRadius: '16px',
-                      background: '#f8fafc',
-                      border: '1px solid #e2e8f0',
+                      padding: '5px 12px',
+                      borderRadius: '999px',
+                      background: 'var(--bg-app)',
+                      border: '1px solid var(--border-color)',
                       fontSize: '11px',
-                      color: '#334155',
-                      fontWeight: 500,
+                      color: 'var(--text-primary)',
+                      fontWeight: 600,
                       cursor: 'pointer',
                       transition: 'all 0.15s ease'
                     }}
@@ -398,8 +399,8 @@ export const MessagesPage: React.FC = () => {
                       e.currentTarget.style.color = '#ff6600';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = '#e2e8f0';
-                      e.currentTarget.style.color = '#334155';
+                      e.currentTarget.style.borderColor = 'var(--border-color)';
+                      e.currentTarget.style.color = 'var(--text-primary)';
                     }}
                   >
                     {chip}
@@ -411,12 +412,12 @@ export const MessagesPage: React.FC = () => {
               <form
                 onSubmit={handleSend}
                 style={{
-                  padding: '12px 16px',
-                  borderTop: '1px solid #e2e8f0',
+                  padding: '14px 18px',
+                  borderTop: '1px solid var(--border-color)',
                   display: 'flex',
                   gap: '10px',
                   alignItems: 'center',
-                  background: '#ffffff',
+                  background: 'var(--bg-card)',
                   flexShrink: 0
                 }}
               >
@@ -427,24 +428,26 @@ export const MessagesPage: React.FC = () => {
                   placeholder="Type your negotiation message, specifications, or inquiry..."
                   style={{
                     flex: 1,
-                    padding: '10px 16px',
-                    borderRadius: '24px',
-                    border: '1px solid #cbd5e1',
+                    padding: '11px 18px',
+                    borderRadius: '999px',
+                    border: '1px solid var(--border-color)',
                     fontSize: '13px',
-                    outline: 'none'
+                    outline: 'none',
+                    background: 'var(--bg-app)',
+                    color: 'var(--text-primary)'
                   }}
                 />
                 <button
                   type="submit"
                   className="btn-primary"
-                  style={{ borderRadius: '50%', width: '40px', height: '40px', padding: 0, flexShrink: 0 }}
+                  style={{ borderRadius: '50%', width: '42px', height: '42px', padding: 0, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
                   <Send size={16} />
                 </button>
               </form>
             </div>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', height: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)', height: '100%' }}>
               Select a conversation to start chatting
             </div>
           )}
@@ -453,3 +456,4 @@ export const MessagesPage: React.FC = () => {
     </div>
   );
 };
+

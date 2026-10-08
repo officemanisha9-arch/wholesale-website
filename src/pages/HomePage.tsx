@@ -8,13 +8,13 @@ import { QuickRFQWidget } from '../components/home/QuickRFQWidget';
 import { ProductCard } from '../components/products/ProductCard';
 import { PRODUCTS } from '../data/products';
 import { Link } from '@tanstack/react-router';
-import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, TrendingUp } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const trendingProducts = PRODUCTS.slice(0, 8);
 
   return (
-    <div style={{ paddingBottom: '40px' }}>
+    <div style={{ paddingBottom: '48px' }}>
       {/* 1. Hero Dynamic Slider & Quick Sourcing Floors */}
       <HeroSection />
 
@@ -25,20 +25,25 @@ export const HomePage: React.FC = () => {
       <AlibabaGuaranteedFloor />
 
       {/* 4. Trending B2B Wholesale Recommendations */}
-      <section style={{ marginBottom: '36px' }}>
+      <section style={{ marginBottom: '44px' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
             <div>
-              <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#111', fontFamily: 'Outfit, sans-serif' }}>
-                Recommended for Your Business Sourcing
-              </h2>
-              <p style={{ fontSize: '13px', color: '#666' }}>
-                Top-performing wholesale items curated based on global retail trends and verified trade volume.
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <span className="badge-rts">
+                  <TrendingUp size={12} /> TOP CURATED PICKS
+                </span>
+                <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em' }}>
+                  Recommended for Your Business Sourcing
+                </h2>
+              </div>
+              <p style={{ fontSize: '13.5px', color: '#64748b' }}>
+                Top-performing wholesale products curated based on global market demand, factory lead times, and verified trade volume.
               </p>
             </div>
             <Link
               to="/products"
-              style={{ color: '#ff6a00', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
+              style={{ color: '#ff6600', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
             >
               <span>Explore All Products</span>
               <ArrowRight size={15} />
