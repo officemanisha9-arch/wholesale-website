@@ -31,15 +31,15 @@ export const AccountPage: React.FC = () => {
   const savedSuppliers = SUPPLIERS.filter(s => favoriteSupplierIds.includes(s.id));
 
   return (
-    <div style={{ padding: '24px 0 60px 0' }}>
+    <div style={{ padding: '28px 0 70px 0', background: 'var(--bg-app)', minHeight: '100vh' }}>
       <div className="container">
         {/* User Profile Header Card */}
         <div
           style={{
-            background: '#ffffff',
-            borderRadius: '16px',
-            border: '1px solid #e5e7eb',
-            padding: '28px',
+            background: 'var(--bg-card)',
+            borderRadius: '24px',
+            border: '1px solid var(--border-color)',
+            padding: '32px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -50,121 +50,176 @@ export const AccountPage: React.FC = () => {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-            <img
-              src={currentUser?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80'}
-              alt={currentUser?.name}
-              style={{ width: '72px', height: '72px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #ff6a00' }}
-            />
+            <div style={{ position: 'relative' }}>
+              <img
+                src={currentUser?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80'}
+                alt={currentUser?.name}
+                style={{ width: '76px', height: '76px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #ff6600', boxShadow: '0 4px 14px rgba(255, 102, 0, 0.25)' }}
+              />
+              <span
+                style={{
+                  position: 'absolute',
+                  bottom: '0',
+                  right: '0',
+                  background: '#059669',
+                  color: '#fff',
+                  width: '18px',
+                  height: '18px',
+                  borderRadius: '50%',
+                  border: '2px solid #fff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '10px'
+                }}
+              >
+                ✓
+              </span>
+            </div>
+
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', flexWrap: 'wrap' }}>
-                <h1 style={{ fontSize: '22px', fontWeight: 800, color: '#111', fontFamily: 'Outfit, sans-serif' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                <h1 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif', margin: 0 }}>
                   {currentUser?.name || 'Alexander Wright'}
                 </h1>
-                <span className="badge-guaranteed">
+                <span className="badge-guaranteed" style={{ borderRadius: '999px', padding: '3px 10px', fontSize: '11px' }}>
                   VIP PRO BUYER TIER 2
                 </span>
               </div>
-              <div style={{ fontSize: '13px', color: '#666' }}>
-                {currentUser?.companyName} • Member since 2021 • Country: {currentUser?.country}
+              <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+                {currentUser?.companyName} • Member since 2021 • Country: <strong>{currentUser?.country}</strong>
               </div>
             </div>
           </div>
 
           <div style={{ display: 'flex', gap: '12px', textAlign: 'center', flexWrap: 'wrap' }}>
-            <div style={{ background: '#f8fafc', padding: '12px 18px', borderRadius: '10px' }}>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#ff6a00' }}>{orders.length}</div>
-              <div style={{ fontSize: '11px', color: '#666' }}>Active Orders</div>
+            <div style={{ background: 'var(--bg-app)', padding: '14px 22px', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '22px', fontWeight: 900, color: '#ff6600', fontFamily: 'Outfit, sans-serif' }}>{orders.length}</div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600 }}>Active Orders</div>
             </div>
-            <div style={{ background: '#f8fafc', padding: '12px 18px', borderRadius: '10px' }}>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#2563eb' }}>{rfqs.length}</div>
-              <div style={{ fontSize: '11px', color: '#666' }}>Submitted RFQs</div>
+            <div style={{ background: 'var(--bg-app)', padding: '14px 22px', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '22px', fontWeight: 900, color: '#2563eb', fontFamily: 'Outfit, sans-serif' }}>{rfqs.length}</div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600 }}>Submitted RFQs</div>
             </div>
-            <div style={{ background: '#f8fafc', padding: '12px 18px', borderRadius: '10px' }}>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#e11d48' }}>{savedProducts.length}</div>
-              <div style={{ fontSize: '11px', color: '#666' }}>Saved Favorites</div>
+            <div style={{ background: 'var(--bg-app)', padding: '14px 22px', borderRadius: '14px', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '22px', fontWeight: 900, color: '#e11d48', fontFamily: 'Outfit, sans-serif' }}>{savedProducts.length}</div>
+              <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600 }}>Saved Favorites</div>
             </div>
           </div>
         </div>
 
         {/* Quick Links / Dashboard Grid */}
-        <div className="grid-cols-3-responsive" style={{ marginBottom: '36px' }}>
+        <div className="grid-cols-3-responsive" style={{ marginBottom: '36px', gap: '18px' }}>
           <Link
             to="/orders"
             style={{
-              background: '#ffffff',
-              borderRadius: '12px',
-              border: '1px solid #e5e7eb',
-              padding: '20px',
+              background: 'var(--bg-card)',
+              borderRadius: '18px',
+              border: '1px solid var(--border-color)',
+              padding: '22px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              boxShadow: 'var(--shadow-sm)'
+              boxShadow: 'var(--shadow-xs)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = '#ff6600';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border-color)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Package size={24} color="#ff6a00" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#fff5eb', color: '#ff6600', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Package size={22} />
+              </div>
               <div>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#111' }}>Orders &amp; Shipments</div>
-                <div style={{ fontSize: '12px', color: '#666' }}>Manage and track your active Trade Assurance orders</div>
+                <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>Orders &amp; Shipments</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Manage and track your active Trade Assurance orders</div>
               </div>
             </div>
-            <ChevronRight size={18} color="#999" />
+            <ChevronRight size={18} color="#94a3b8" />
           </Link>
 
           <Link
             to="/rfq"
             style={{
-              background: '#ffffff',
-              borderRadius: '12px',
-              border: '1px solid #e5e7eb',
-              padding: '20px',
+              background: 'var(--bg-card)',
+              borderRadius: '18px',
+              border: '1px solid var(--border-color)',
+              padding: '22px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              boxShadow: 'var(--shadow-sm)'
+              boxShadow: 'var(--shadow-xs)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = '#2563eb';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border-color)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <FileText size={24} color="#2563eb" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#eff6ff', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <FileText size={22} />
+              </div>
               <div>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#111' }}>My Sourcing RFQs</div>
-                <div style={{ fontSize: '12px', color: '#666' }}>Review supplier quotation proposals</div>
+                <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>My Sourcing RFQs</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Review supplier quotation proposals</div>
               </div>
             </div>
-            <ChevronRight size={18} color="#999" />
+            <ChevronRight size={18} color="#94a3b8" />
           </Link>
 
           <Link
             to="/messages"
             style={{
-              background: '#ffffff',
-              borderRadius: '12px',
-              border: '1px solid #e5e7eb',
-              padding: '20px',
+              background: 'var(--bg-card)',
+              borderRadius: '18px',
+              border: '1px solid var(--border-color)',
+              padding: '22px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              boxShadow: 'var(--shadow-sm)'
+              boxShadow: 'var(--shadow-xs)',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = '#059669';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border-color)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Building2 size={24} color="#059669" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Building2 size={22} />
+              </div>
               <div>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#111' }}>Supplier Messenger</div>
-                <div style={{ fontSize: '12px', color: '#666' }}>Chat and negotiate wholesale terms</div>
+                <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>Supplier Messenger</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Chat and negotiate wholesale terms</div>
               </div>
             </div>
-            <ChevronRight size={18} color="#999" />
+            <ChevronRight size={18} color="#94a3b8" />
           </Link>
         </div>
 
         {/* Favorite Products Showcase */}
         {savedProducts.length > 0 && (
           <div style={{ marginBottom: '36px' }}>
-            <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#111', marginBottom: '16px', fontFamily: 'Outfit, sans-serif' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '16px', fontFamily: 'Outfit, sans-serif' }}>
               My Saved &amp; Favorite Wholesale Products ({savedProducts.length})
             </h2>
-            <div className="grid-cols-4-responsive">
+            <div className="product-grid-floor">
               {savedProducts.map(prod => (
                 <ProductCard key={prod.id} product={prod} />
               ))}
@@ -175,36 +230,37 @@ export const AccountPage: React.FC = () => {
         {/* Followed Suppliers Showcase */}
         {savedSuppliers.length > 0 && (
           <div>
-            <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#111', marginBottom: '16px', fontFamily: 'Outfit, sans-serif' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '16px', fontFamily: 'Outfit, sans-serif' }}>
               Followed Verified OEM Manufacturers ({savedSuppliers.length})
             </h2>
-            <div className="grid-cols-2-responsive">
+            <div className="grid-cols-2-responsive" style={{ gap: '16px' }}>
               {savedSuppliers.map(sup => (
                 <div
                   key={sup.id}
                   style={{
-                    background: '#ffffff',
-                    borderRadius: '12px',
-                    border: '1px solid #e5e7eb',
-                    padding: '18px',
+                    background: 'var(--bg-card)',
+                    borderRadius: '16px',
+                    border: '1px solid var(--border-color)',
+                    padding: '18px 22px',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    boxShadow: 'var(--shadow-xs)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                     <img
                       src={sup.avatar}
                       alt={sup.name}
-                      style={{ width: '48px', height: '48px', borderRadius: '10px', objectFit: 'cover' }}
+                      style={{ width: '50px', height: '50px', borderRadius: '12px', objectFit: 'cover', border: '1px solid var(--border-color)' }}
                     />
                     <div>
-                      <div style={{ fontWeight: 800, color: '#111', fontSize: '14px' }}>{sup.name}</div>
-                      <div style={{ fontSize: '12px', color: '#666' }}>{sup.city} • {sup.years} Yrs Verified Gold Supplier</div>
+                      <div style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '14px', fontFamily: 'Outfit, sans-serif' }}>{sup.name}</div>
+                      <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '2px' }}>{sup.city} • {sup.years} Yrs Verified Gold Supplier</div>
                     </div>
                   </div>
 
-                  <Link to="/messages" className="btn-secondary" style={{ padding: '6px 14px', fontSize: '12px' }}>
+                  <Link to="/messages" className="btn-secondary" style={{ padding: '7px 16px', fontSize: '12px', borderRadius: '8px' }}>
                     Chat Now
                   </Link>
                 </div>
@@ -216,3 +272,4 @@ export const AccountPage: React.FC = () => {
     </div>
   );
 };
+

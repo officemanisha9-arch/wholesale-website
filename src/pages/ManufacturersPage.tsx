@@ -27,33 +27,36 @@ export const ManufacturersPage: React.FC = () => {
   }, [SUPPLIERS, searchQuery, filterOem, filterCleanRoom, selectedCountry]);
 
   return (
-    <div style={{ padding: '24px 0 60px 0' }}>
+    <div style={{ padding: '28px 0 70px 0', minHeight: '100vh' }}>
       <div className="container">
         {/* Header Banner */}
         <div
           style={{
-            background: 'linear-gradient(135deg, #1e293b, #0f172a)',
-            borderRadius: '16px',
-            padding: '36px 40px',
+            background: 'linear-gradient(135deg, #090d16 0%, #1e293b 100%)',
+            borderRadius: '22px',
+            padding: '40px 44px',
             color: '#ffffff',
             marginBottom: '32px',
             position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-lg)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
           }}
         >
-          <div style={{ maxWidth: '640px' }}>
+          <div style={{ maxWidth: '680px', position: 'relative', zIndex: 2 }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: 'linear-gradient(90deg, #fa6400, #ff8c00)',
+                background: 'var(--ali-orange-gradient)',
                 color: '#fff',
                 fontSize: '11px',
                 fontWeight: 800,
-                padding: '3px 10px',
-                borderRadius: '12px',
-                marginBottom: '10px'
+                padding: '4px 12px',
+                borderRadius: '20px',
+                marginBottom: '14px',
+                boxShadow: 'var(--ali-orange-glow)'
               }}
             >
               <Award size={12} />
@@ -65,15 +68,16 @@ export const ManufacturersPage: React.FC = () => {
                 fontSize: '32px',
                 fontWeight: 800,
                 lineHeight: '1.25',
-                marginBottom: '10px',
-                fontFamily: 'Outfit, sans-serif'
+                marginBottom: '12px',
+                fontFamily: 'Outfit, sans-serif',
+                letterSpacing: '-0.02em'
               }}
             >
               Direct OEM &amp; ODM Super-Manufacturer Directory
             </h1>
 
             <p style={{ fontSize: '14px', color: '#cbd5e1', lineHeight: '22px' }}>
-              Bypass intermediaries. Partner directly with audited manufacturing facilities holding verified ISO9001, CE, BSCI, and OEKO-TEX compliance reports.
+              Partner directly with audited manufacturing facilities holding verified ISO9001, CE, BSCI, and OEKO-TEX compliance reports with Trade Assurance payment protection.
             </p>
           </div>
         </div>
@@ -82,21 +86,21 @@ export const ManufacturersPage: React.FC = () => {
         <div
           style={{
             background: '#ffffff',
-            borderRadius: '12px',
-            padding: '18px 24px',
-            border: '1px solid #e5e7eb',
-            marginBottom: '24px',
+            borderRadius: '16px',
+            padding: '16px 24px',
+            border: '1px solid #e2e8f0',
+            marginBottom: '28px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '16px',
-            boxShadow: 'var(--shadow-sm)'
+            boxShadow: 'var(--shadow-xs)'
           }}
         >
           {/* Search input */}
-          <div style={{ position: 'relative', width: '320px' }}>
-            <Search size={16} color="#888" style={{ position: 'absolute', left: '12px', top: '12px' }} />
+          <div style={{ position: 'relative', width: '340px' }}>
+            <Search size={16} color="#94a3b8" style={{ position: 'absolute', left: '14px', top: '12px' }} />
             <input
               type="text"
               value={searchQuery}
@@ -104,78 +108,90 @@ export const ManufacturersPage: React.FC = () => {
               placeholder="Search by factory name or capability..."
               style={{
                 width: '100%',
-                padding: '9px 12px 9px 36px',
-                borderRadius: '6px',
-                border: '1px solid #d1d5db',
-                fontSize: '13px',
+                padding: '10px 14px 10px 38px',
+                borderRadius: '10px',
+                border: '1px solid #cbd5e1',
+                fontSize: '13.5px',
                 outline: 'none'
               }}
             />
           </div>
 
           {/* Capability Filters */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '13px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', fontSize: '13px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
               <input
                 type="checkbox"
                 checked={filterOem}
                 onChange={e => setFilterOem(e.target.checked)}
-                style={{ accentColor: '#ff6a00' }}
+                style={{ accentColor: '#ff6600', width: '16px', height: '16px' }}
               />
-              <span style={{ fontWeight: 600, color: '#333' }}>OEM / ODM Customization</span>
+              <span style={{ fontWeight: 600, color: '#334155' }}>OEM / ODM Capabilities</span>
             </label>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
               <input
                 type="checkbox"
                 checked={filterCleanRoom}
                 onChange={e => setFilterCleanRoom(e.target.checked)}
-                style={{ accentColor: '#ff6a00' }}
+                style={{ accentColor: '#ff6600', width: '16px', height: '16px' }}
               />
-              <span style={{ fontWeight: 600, color: '#333' }}>Clean Room / Dust-Free</span>
+              <span style={{ fontWeight: 600, color: '#334155' }}>Clean Room Plant</span>
             </label>
 
             <select
               value={selectedCountry}
               onChange={e => setSelectedCountry(e.target.value)}
               style={{
-                padding: '8px 12px',
-                borderRadius: '6px',
-                border: '1px solid #d1d5db',
-                fontSize: '13px',
+                padding: '8px 14px',
+                borderRadius: '8px',
+                border: '1px solid #cbd5e1',
+                fontSize: '12.5px',
+                color: '#0f172a',
+                fontWeight: 600,
+                outline: 'none',
                 background: '#fff',
-                outline: 'none'
+                cursor: 'pointer'
               }}
             >
-              <option value="all">All Manufacturing Countries</option>
-              <option value="CN">China (Shenzhen, Guangzhou, Ningbo)</option>
-              <option value="TR">Türkiye (Istanbul, Bursa)</option>
-              <option value="VN">Vietnam (Hanoi)</option>
-              <option value="DE">Germany (Munich)</option>
+              <option value="all">All Export Regions</option>
+              <option value="CN">🇨🇳 China</option>
+              <option value="VN">🇻🇳 Vietnam</option>
+              <option value="TR">🇹🇷 Türkiye</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="JP">🇯🇵 Japan</option>
             </select>
           </div>
         </div>
 
-        {/* Suppliers List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* 3-Column Factory Cards Grid */}
+        <div className="grid-cols-3-responsive">
           {filteredSuppliers.map(sup => (
             <div
               key={sup.id}
-              id={sup.id}
-              className="factory-card-grid"
               style={{
                 background: '#ffffff',
-                borderRadius: '14px',
-                border: '1px solid #e5e7eb',
-                padding: '24px',
-                boxShadow: 'var(--shadow-sm)',
-                transition: 'all 0.2s ease'
+                borderRadius: '20px',
+                border: '1px solid #e2e8f0',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: 'var(--shadow-xs)',
+                transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = '#fa6400')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = '#e5e7eb')}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = '#cbd5e1';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = '#e2e8f0';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-xs)';
+              }}
             >
-              {/* Left Video / Factory Photo */}
-              <div style={{ position: 'relative', borderRadius: '10px', overflow: 'hidden', height: '170px' }}>
+              {/* Factory Banner Image */}
+              <div style={{ height: '160px', position: 'relative', overflow: 'hidden' }}>
                 <img
                   src={sup.bannerImage}
                   alt={sup.name}
@@ -184,138 +200,103 @@ export const ManufacturersPage: React.FC = () => {
                 <div
                   style={{
                     position: 'absolute',
-                    top: '8px',
-                    left: '8px',
-                    background: 'rgba(0,0,0,0.7)',
+                    top: '12px',
+                    left: '12px',
+                    background: 'rgba(15, 23, 42, 0.75)',
+                    backdropFilter: 'blur(8px)',
                     color: '#fff',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
                     fontSize: '11px',
+                    fontWeight: 700,
+                    padding: '3px 9px',
+                    borderRadius: '20px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4px'
+                    gap: '5px',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
                   }}
                 >
                   <Video size={12} />
-                  <span>360° VR Live Audit</span>
+                  <span>360° VR Tour</span>
                 </div>
               </div>
 
-              {/* Middle Profile & Credentials */}
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              {/* Body */}
+              <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                 <div>
-                  {/* Title & Badges */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '20px' }}>{sup.flag}</span>
-                    <h3 style={{ fontSize: '17px', fontWeight: 800, color: '#111' }}>
-                      {sup.name}
-                    </h3>
+                  {/* Supplier Header */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                    <img
+                      src={sup.avatar}
+                      alt={sup.name}
+                      style={{ width: '44px', height: '44px', borderRadius: '12px', objectFit: 'cover', border: '1px solid #e2e8f0' }}
+                    />
+                    <div style={{ overflow: 'hidden' }}>
+                      <div style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a' }} className="truncate">
+                        {sup.name}
+                      </div>
+                      <div style={{ fontSize: '12px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+                        <span>{sup.flag}</span>
+                        <span>{sup.city}</span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                    <span className="badge-verified">{sup.years} YRS Gold Supplier</span>
-                    <span className="badge-trade-assurance">🛡️ Trade Assurance</span>
-                    {sup.oemOdm && <span className="badge-rts">OEM/ODM Certified</span>}
-                    {sup.cleanRoom && <span className="badge-us-stock">ISO Clean Room</span>}
+                  {/* Badges */}
+                  <div style={{ display: 'flex', gap: '6px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                    <span className="badge-verified">{sup.years} YRS Verified</span>
+                    <span className="badge-trade-assurance">Trade Assurance</span>
                   </div>
 
-                  {/* Production Capacity Highlights */}
+                  {/* Production Stats Table */}
                   <div
                     style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '10px',
-                      background: '#f9fafb',
-                      borderRadius: '8px',
-                      padding: '10px 14px',
+                      background: '#f8fafc',
+                      borderRadius: '12px',
+                      padding: '12px 14px',
                       fontSize: '12px',
-                      marginBottom: '12px'
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '6px',
+                      marginBottom: '14px',
+                      border: '1px solid #f1f5f9'
                     }}
                   >
-                    <div>
-                      <div style={{ color: '#666', fontSize: '11px' }}>Facility Size:</div>
-                      <div style={{ fontWeight: 700, color: '#111' }}>{sup.floorSpace}</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#64748b' }}>Floor Space:</span>
+                      <span style={{ fontWeight: 700, color: '#0f172a' }}>{sup.floorSpace}</span>
                     </div>
-                    <div>
-                      <div style={{ color: '#666', fontSize: '11px' }}>Full-time Staff:</div>
-                      <div style={{ fontWeight: 700, color: '#111' }}>{sup.employees}</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#64748b' }}>Staff Size:</span>
+                      <span style={{ fontWeight: 700, color: '#0f172a' }}>{sup.employees}</span>
                     </div>
-                    <div>
-                      <div style={{ color: '#666', fontSize: '11px' }}>Annual Revenue:</div>
-                      <div style={{ fontWeight: 700, color: '#111' }}>{sup.annualOutput}</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#64748b' }}>Response:</span>
+                      <span style={{ fontWeight: 800, color: '#059669' }}>{sup.responseRate}</span>
                     </div>
                   </div>
 
-                  {/* Customization capabilities */}
-                  <div style={{ fontSize: '12px', color: '#555' }}>
-                    <strong style={{ color: '#222' }}>Customization: </strong>
-                    {sup.customizationCapabilities.join(' • ')}
-                  </div>
-                </div>
-
-                {/* Certifications row */}
-                <div style={{ display: 'flex', gap: '6px', marginTop: '12px', flexWrap: 'wrap' }}>
-                  {sup.certifications.map((cert, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        background: '#eff6ff',
-                        color: '#1e40af',
-                        fontSize: '10px',
-                        fontWeight: 700,
-                        padding: '2px 7px',
-                        borderRadius: '4px'
-                      }}
-                    >
-                      {cert}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Performance Stats & Actions */}
-              <div
-                className="factory-card-actions"
-                style={{
-                  borderLeft: '1px solid #f0f0f0',
-                  paddingLeft: '20px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div style={{ textAlign: 'right', marginBottom: '12px' }}>
-                    <div style={{ fontSize: '11px', color: '#666' }}>Response Rate</div>
-                    <div style={{ fontSize: '18px', fontWeight: 800, color: '#059669' }}>
-                      {sup.responseRate}
-                    </div>
-                    <div style={{ fontSize: '11px', color: '#888' }}>Avg response: {sup.responseTime}</div>
-                  </div>
-
-                  <div style={{ fontSize: '11px', color: '#666', textAlign: 'right', marginBottom: '16px' }}>
-                    <strong>Main Export Markets:</strong>
-                    <div>{sup.mainMarkets[0]}</div>
-                    <div>{sup.mainMarkets[1]}</div>
+                  {/* Customization Capabilities */}
+                  <div style={{ fontSize: '12px', color: '#475569', marginBottom: '16px', lineHeight: '18px' }}>
+                    <span style={{ fontWeight: 800, color: '#0f172a' }}>OEM: </span>
+                    {sup.customizationCapabilities.join(', ')}
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {/* Actions */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <button
                     onClick={() => setContactSupplierData({ supplier: sup })}
                     className="btn-primary"
-                    style={{ width: '100%', padding: '9px 0', fontSize: '13px' }}
+                    style={{ padding: '9px 0', fontSize: '13px', borderRadius: '10px' }}
                   >
-                    <Send size={14} />
-                    <span>Send Custom RFQ</span>
+                    Send RFQ
                   </button>
                   <button
-                    onClick={() => startChatWithSupplier(sup.id, undefined, `Hello! We are inquiring about your OEM manufacturing capacity.`)}
+                    onClick={() => startChatWithSupplier(sup.id, undefined, `Hello! We would like to inquire about your factory's OEM capabilities.`)}
                     className="btn-secondary"
-                    style={{ width: '100%', padding: '9px 0', fontSize: '13px' }}
+                    style={{ padding: '9px 0', fontSize: '13px', borderRadius: '10px' }}
                   >
-                    <MessageSquare size={14} />
-                    <span>Live Factory Chat</span>
+                    Live Chat
                   </button>
                 </div>
               </div>

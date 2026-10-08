@@ -34,15 +34,15 @@ export const QuickRFQWidget: React.FC = () => {
   };
 
   return (
-    <section style={{ marginBottom: '40px' }}>
+    <section style={{ marginBottom: '44px' }}>
       <div className="container">
         <div
           style={{
-            background: 'linear-gradient(135deg, #fff7ed 0%, #fff 100%)',
-            borderRadius: '16px',
-            border: '1.5px solid #fed7aa',
-            padding: '32px 40px',
-            boxShadow: 'var(--shadow-md)',
+            background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbf7 100%)',
+            borderRadius: '20px',
+            border: '1px solid #fed7aa',
+            padding: '36px 44px',
+            boxShadow: 'var(--shadow-md), 0 8px 30px rgba(255, 102, 0, 0.06)',
             position: 'relative',
             overflow: 'hidden'
           }}
@@ -55,13 +55,14 @@ export const QuickRFQWidget: React.FC = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  background: '#ff6a00',
+                  background: 'var(--ali-orange-gradient)',
                   color: '#fff',
                   fontSize: '11px',
                   fontWeight: 800,
-                  padding: '3px 10px',
-                  borderRadius: '12px',
-                  marginBottom: '12px'
+                  padding: '4px 12px',
+                  borderRadius: '20px',
+                  marginBottom: '14px',
+                  boxShadow: 'var(--ali-orange-glow)'
                 }}
               >
                 <FileText size={12} />
@@ -70,33 +71,34 @@ export const QuickRFQWidget: React.FC = () => {
 
               <h2
                 style={{
-                  fontSize: '26px',
+                  fontSize: '28px',
                   fontWeight: 800,
-                  color: '#111',
-                  lineHeight: '1.3',
-                  marginBottom: '10px',
-                  fontFamily: 'Outfit, sans-serif'
+                  color: '#0f172a',
+                  lineHeight: '1.25',
+                  marginBottom: '12px',
+                  fontFamily: 'Outfit, sans-serif',
+                  letterSpacing: '-0.02em'
                 }}
               >
                 One Request, Multiple Verified Supplier Quotations
               </h2>
 
-              <p style={{ fontSize: '13px', color: '#666', lineHeight: '20px', marginBottom: '20px' }}>
-                Post your detailed product specifications in under 1 minute. Our intelligent supplier match engine distributes your RFQ to audited Gold Suppliers who return official price quotes within 24 hours.
+              <p style={{ fontSize: '13.5px', color: '#64748b', lineHeight: '22px', marginBottom: '22px' }}>
+                Post your product specifications in under 1 minute. Our intelligent supplier match engine distributes your RFQ to audited Gold Suppliers who return official price quotes within 24 hours.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12px', color: '#333' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle2 size={16} color="#ff6a00" />
-                  <span>Receive average of 5+ custom supplier quotes</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#334155' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <CheckCircle2 size={16} color="#ff6600" />
+                  <span>Receive an average of 5+ custom supplier quotes</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle2 size={16} color="#ff6a00" />
-                  <span>Compare FOB, CIF &amp; DDP door-to-door shipping options</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <CheckCircle2 size={16} color="#ff6600" />
+                  <span>Compare FOB, CIF &amp; DDP door-to-door shipping rates</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle2 size={16} color="#ff6a00" />
-                  <span>All finalized contracts backed by Trade Assurance</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <CheckCircle2 size={16} color="#ff6600" />
+                  <span>All finalized contracts backed by Trade Assurance Escrow</span>
                 </div>
               </div>
             </div>
@@ -106,15 +108,15 @@ export const QuickRFQWidget: React.FC = () => {
               onSubmit={handleSubmit}
               style={{
                 background: '#ffffff',
-                borderRadius: '12px',
-                padding: '24px',
-                border: '1px solid #e5e7eb',
-                boxShadow: 'var(--shadow-sm)'
+                borderRadius: '16px',
+                padding: '28px',
+                border: '1px solid #e2e8f0',
+                boxShadow: 'var(--shadow-md)'
               }}
             >
-              <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#333', marginBottom: '4px' }}>
-                  Product Name / Keyword:
+              <div style={{ marginBottom: '16px' }}>
+                <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                  Product Keyword / Requirements:
                 </label>
                 <input
                   type="text"
@@ -124,18 +126,18 @@ export const QuickRFQWidget: React.FC = () => {
                   required
                   style={{
                     width: '100%',
-                    padding: '9px 12px',
-                    borderRadius: '6px',
-                    border: '1px solid #d1d5db',
-                    fontSize: '13px',
+                    padding: '10px 14px',
+                    borderRadius: '10px',
+                    border: '1px solid #cbd5e1',
+                    fontSize: '13.5px',
                     outline: 'none'
                   }}
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '16px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#333', marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                     Category:
                   </label>
                   <select
@@ -143,12 +145,13 @@ export const QuickRFQWidget: React.FC = () => {
                     onChange={e => setCategory(e.target.value)}
                     style={{
                       width: '100%',
-                      padding: '9px 12px',
-                      borderRadius: '6px',
-                      border: '1px solid #d1d5db',
+                      padding: '10px 14px',
+                      borderRadius: '10px',
+                      border: '1px solid #cbd5e1',
                       fontSize: '13px',
                       outline: 'none',
-                      background: '#fff'
+                      background: '#fff',
+                      cursor: 'pointer'
                     }}
                   >
                     {CATEGORIES.map(c => (
@@ -160,7 +163,7 @@ export const QuickRFQWidget: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#333', marginBottom: '4px' }}>
+                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                     Quantity &amp; Unit:
                   </label>
                   <div style={{ display: 'flex', gap: '6px' }}>
@@ -172,9 +175,9 @@ export const QuickRFQWidget: React.FC = () => {
                       required
                       style={{
                         flex: 1,
-                        padding: '9px 12px',
-                        borderRadius: '6px',
-                        border: '1px solid #d1d5db',
+                        padding: '10px 12px',
+                        borderRadius: '10px',
+                        border: '1px solid #cbd5e1',
                         fontSize: '13px',
                         outline: 'none'
                       }}
@@ -183,13 +186,14 @@ export const QuickRFQWidget: React.FC = () => {
                       value={unit}
                       onChange={e => setUnit(e.target.value)}
                       style={{
-                        width: '90px',
-                        padding: '9px 8px',
-                        borderRadius: '6px',
-                        border: '1px solid #d1d5db',
+                        width: '95px',
+                        padding: '10px 8px',
+                        borderRadius: '10px',
+                        border: '1px solid #cbd5e1',
                         fontSize: '12px',
                         outline: 'none',
-                        background: '#fff'
+                        background: '#fff',
+                        cursor: 'pointer'
                       }}
                     >
                       <option value="pieces">Pieces</option>
@@ -201,8 +205,8 @@ export const QuickRFQWidget: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: '#333', marginBottom: '4px' }}>
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                   Target Unit Price (Optional USD):
                 </label>
                 <input
@@ -213,10 +217,10 @@ export const QuickRFQWidget: React.FC = () => {
                   placeholder="e.g. $8.50"
                   style={{
                     width: '100%',
-                    padding: '9px 12px',
-                    borderRadius: '6px',
-                    border: '1px solid #d1d5db',
-                    fontSize: '13px',
+                    padding: '10px 14px',
+                    borderRadius: '10px',
+                    border: '1px solid #cbd5e1',
+                    fontSize: '13.5px',
                     outline: 'none'
                   }}
                 />
@@ -225,7 +229,7 @@ export const QuickRFQWidget: React.FC = () => {
               <button
                 type="submit"
                 className="btn-primary"
-                style={{ width: '100%', padding: '11px 0', fontSize: '14px' }}
+                style={{ width: '100%', padding: '12px 0', fontSize: '14px', borderRadius: '12px' }}
               >
                 <Send size={15} />
                 <span>Submit RFQ &amp; Get Free Quotes</span>

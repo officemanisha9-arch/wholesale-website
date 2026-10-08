@@ -120,36 +120,36 @@ export const ProductListingPage: React.FC = () => {
   const activeCategoryObj = CATEGORIES.find(c => c.id === filters.category);
 
   return (
-    <div style={{ padding: '24px 0 60px 0', background: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ padding: '24px 0 64px 0', minHeight: '100vh' }}>
       <div className="container">
         
         {/* Breadcrumb Header */}
-        <div style={{ marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748b', marginBottom: '8px', flexWrap: 'wrap' }}>
-            <Link to="/" style={{ color: '#64748b' }}>Home</Link>
-            <ChevronRight size={12} />
-            <span style={{ color: '#0f172a', fontWeight: 600 }}>Wholesale Products</span>
+        <div style={{ marginBottom: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', color: '#64748b', marginBottom: '10px', flexWrap: 'wrap' }}>
+            <Link to="/" style={{ color: '#64748b', fontWeight: 500 }}>Home</Link>
+            <ChevronRight size={13} />
+            <span style={{ color: '#0f172a', fontWeight: 600 }}>Wholesale Showroom</span>
             {activeCategoryObj && (
               <>
-                <ChevronRight size={12} />
+                <ChevronRight size={13} />
                 <span style={{ color: '#ff6600', fontWeight: 700 }}>{activeCategoryObj.name}</span>
               </>
             )}
             {queryTerm && (
               <>
-                <ChevronRight size={12} />
+                <ChevronRight size={13} />
                 <span style={{ color: '#ff6600', fontWeight: 700 }}>"{queryTerm}"</span>
               </>
             )}
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '14px' }}>
             <div>
-              <h1 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif' }}>
+              <h1 style={{ fontSize: '26px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', marginBottom: '4px' }}>
                 {activeCategoryObj ? activeCategoryObj.name : queryTerm ? `Results for "${queryTerm}"` : 'Global B2B Wholesale Showroom'}
               </h1>
-              <p style={{ fontSize: '13px', color: '#64748b', margin: 0 }}>
-                Verified factory-direct pricing with Trade Assurance payment protection.
+              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0 }}>
+                Verified factory-direct pricing with Trade Assurance escrow payment protection.
               </p>
             </div>
 
@@ -184,38 +184,39 @@ export const ProductListingPage: React.FC = () => {
             <div
               style={{
                 background: '#ffffff',
-                borderRadius: '12px',
+                borderRadius: '16px',
                 border: '1px solid #e2e8f0',
-                padding: '12px 18px',
+                padding: '12px 20px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                marginBottom: '20px',
+                marginBottom: '22px',
                 boxShadow: 'var(--shadow-xs)',
                 flexWrap: 'wrap',
-                gap: '12px'
+                gap: '14px'
               }}
             >
-              <div style={{ fontSize: '13px', color: '#64748b', fontWeight: 500 }}>
-                Showing <strong>{filteredProducts.length}</strong> matching wholesale items
+              <div style={{ fontSize: '13.5px', color: '#64748b', fontWeight: 500 }}>
+                Showing <strong style={{ color: '#0f172a' }}>{filteredProducts.length}</strong> wholesale items
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
                 {/* Sort dropdown */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-                  <span style={{ color: '#64748b' }}>Sort by:</span>
+                  <span style={{ color: '#64748b', fontWeight: 500 }}>Sort by:</span>
                   <select
                     value={sortBy}
                     onChange={e => setSortBy(e.target.value as any)}
                     style={{
-                      padding: '6px 12px',
-                      borderRadius: '6px',
+                      padding: '7px 14px',
+                      borderRadius: '10px',
                       border: '1px solid #cbd5e1',
                       background: '#fff',
                       fontSize: '13px',
                       color: '#0f172a',
                       fontWeight: 600,
-                      outline: 'none'
+                      outline: 'none',
+                      cursor: 'pointer'
                     }}
                   >
                     <option value="best_match">Best Match</option>
@@ -227,12 +228,12 @@ export const ProductListingPage: React.FC = () => {
                 </div>
 
                 {/* Grid / List layout switcher */}
-                <div style={{ display: 'flex', background: '#f1f5f9', borderRadius: '6px', padding: '2px' }}>
+                <div style={{ display: 'flex', background: '#f1f5f9', borderRadius: '8px', padding: '3px' }}>
                   <button
                     onClick={() => setLayout('grid')}
                     style={{
-                      padding: '5px 8px',
-                      borderRadius: '4px',
+                      padding: '6px 10px',
+                      borderRadius: '6px',
                       background: layout === 'grid' ? '#ffffff' : 'transparent',
                       color: layout === 'grid' ? '#ff6600' : '#64748b',
                       boxShadow: layout === 'grid' ? 'var(--shadow-xs)' : 'none'
@@ -244,8 +245,8 @@ export const ProductListingPage: React.FC = () => {
                   <button
                     onClick={() => setLayout('list')}
                     style={{
-                      padding: '5px 8px',
-                      borderRadius: '4px',
+                      padding: '6px 10px',
+                      borderRadius: '6px',
                       background: layout === 'list' ? '#ffffff' : 'transparent',
                       color: layout === 'list' ? '#ff6600' : '#64748b',
                       boxShadow: layout === 'list' ? 'var(--shadow-xs)' : 'none'
@@ -258,59 +259,34 @@ export const ProductListingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Products Grid / Empty State */}
-            {filteredProducts.length === 0 ? (
-              <div
-                style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  border: '1px solid #e2e8f0',
-                  padding: '60px 24px',
-                  textAlign: 'center',
-                  boxShadow: 'var(--shadow-xs)'
-                }}
-              >
-                <div
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    background: '#fff5eb',
-                    color: '#ff6600',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 16px auto'
-                  }}
-                >
-                  <Search size={28} />
-                </div>
-                <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-                  No Products Found
-                </h3>
-                <p style={{ fontSize: '13px', color: '#64748b', maxWidth: '420px', margin: '0 auto 20px auto', lineHeight: '20px' }}>
-                  We couldn't find items matching your filter criteria. Try clearing filters or submit a custom RFQ to our verified factory pool.
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                  <button onClick={handleResetFilters} className="btn-primary" style={{ padding: '10px 22px' }}>
-                    Reset Filters
-                  </button>
-                  <Link to="/rfq" className="btn-secondary" style={{ padding: '10px 20px' }}>
-                    Post Custom RFQ
-                  </Link>
-                </div>
+            {/* Product Cards Container */}
+            {filteredProducts.length > 0 ? (
+              <div className={layout === 'grid' ? 'grid-cols-3-responsive' : ''} style={layout === 'list' ? { display: 'flex', flexDirection: 'column', gap: '16px' } : {}}>
+                {filteredProducts.map(prod => (
+                  <ProductCard key={prod.id} product={prod} layout={layout} />
+                ))}
               </div>
             ) : (
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: layout === 'grid' ? 'repeat(auto-fill, minmax(220px, 1fr))' : '1fr',
-                  gap: '16px'
+                  background: '#ffffff',
+                  borderRadius: '20px',
+                  border: '1px solid #e2e8f0',
+                  padding: '64px 24px',
+                  textAlign: 'center',
+                  boxShadow: 'var(--shadow-xs)'
                 }}
               >
-                {filteredProducts.map(prod => (
-                  <ProductCard key={prod.id} product={prod} layout={layout} />
-                ))}
+                <div style={{ fontSize: '48px', marginBottom: '16px' }}>📦</div>
+                <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+                  No matching wholesale products found
+                </h3>
+                <p style={{ fontSize: '14px', color: '#64748b', maxWidth: '440px', margin: '0 auto 20px auto' }}>
+                  Try adjusting your filter parameters or resetting your search keywords.
+                </p>
+                <button onClick={handleResetFilters} className="btn-primary" style={{ padding: '10px 24px' }}>
+                  Reset Filters
+                </button>
               </div>
             )}
           </div>
