@@ -134,7 +134,7 @@ export const HeroSection: React.FC = () => {
         {/* HERO MASTER STAGE: RESPONSIVE LUXURY OBSIDIAN B2B SOURCING STAGE          */}
         {/* ========================================================================= */}
         <div className="hero-stage-container">
-          
+
           {/* Subtle Cyber Grid Lines Background Pattern */}
           <div
             style={{
@@ -412,13 +412,13 @@ export const HeroSection: React.FC = () => {
                   background: activeTab === 'ai'
                     ? 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)'
                     : activeTab === 'rfq'
-                    ? 'linear-gradient(135deg, #059669 0%, #047857 100%)'
-                    : 'linear-gradient(135deg, #ff6600 0%, #ea580c 100%)',
+                      ? 'linear-gradient(135deg, #059669 0%, #047857 100%)'
+                      : 'linear-gradient(135deg, #ff6600 0%, #ea580c 100%)',
                   boxShadow: activeTab === 'ai'
                     ? '0 4px 14px rgba(99, 102, 241, 0.4)'
                     : activeTab === 'rfq'
-                    ? '0 4px 14px rgba(5, 150, 105, 0.4)'
-                    : '0 4px 14px rgba(255, 102, 0, 0.4)'
+                      ? '0 4px 14px rgba(5, 150, 105, 0.4)'
+                      : '0 4px 14px rgba(255, 102, 0, 0.4)'
                 }}
               >
                 {activeTab === 'ai' ? (
@@ -492,7 +492,7 @@ export const HeroSection: React.FC = () => {
           {/* INTERACTIVE 3-PILLAR DUAL SHOWCASE (RESPONSIVE GRID)                  */}
           {/* ===================================================================== */}
           <div className="hero-pillars-grid">
-            
+
             {/* Pillar 1: Verified Super-Plant Showcase */}
             <div
               className="hero-pillar-card"
@@ -519,7 +519,7 @@ export const HeroSection: React.FC = () => {
                     </div>
                     <div>
                       <h3 style={{ fontSize: '14px', fontWeight: 800, color: '#ffffff', fontFamily: 'Outfit, sans-serif' }}>
-                        Audited Super-Plants
+                        Audited Super-Plant
                       </h3>
                       <div style={{ fontSize: '10.5px', color: '#94a3b8' }}>ISO9001 &amp; TÜV Verified</div>
                     </div>
