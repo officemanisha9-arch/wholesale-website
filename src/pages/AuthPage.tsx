@@ -55,7 +55,7 @@ export const AuthPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreeTerms && mode === 'register') {
-      showToast('Agreement Required', 'Please accept the Alibaba.com Free Membership Agreement.', 'warning');
+      showToast('Agreement Required', 'Please accept the SOURCEGRID Free Membership Agreement.', 'warning');
       return;
     }
 
@@ -68,7 +68,7 @@ export const AuthPage: React.FC = () => {
         navigate({ to: '/sell' });
       } else {
         loginUser('VIP Pro Buyer');
-        showToast('Welcome to Alibaba.com', `Signed in as ${fullName} (${companyName})`, 'success');
+        showToast('Welcome to SOURCEGRID', `Signed in as ${fullName} (${companyName})`, 'success');
         navigate({ to: '/' });
       }
     }, 900);
@@ -120,7 +120,7 @@ export const AuthPage: React.FC = () => {
               {/* Logo */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px' }}>
                 <div style={{ fontSize: '26px', fontWeight: 900, color: '#ffffff', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.5px' }}>
-                  Alibaba<span style={{ color: '#0f172a' }}>.com</span>
+                  SOURCE<span style={{ color: '#0f172a' }}>GRID</span>
                 </div>
                 <span style={{ fontSize: '10px', background: '#0f172a', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 800 }}>
                   GLOBAL B2B
@@ -178,7 +178,7 @@ export const AuthPage: React.FC = () => {
                 <span style={{ fontSize: '12px', fontWeight: 800 }}>Trusted by 40M+ Enterprises</span>
               </div>
               <p style={{ fontSize: '12px', color: '#ffedd5', margin: 0, fontStyle: 'italic', lineHeight: '18px' }}>
-                "Alibaba Trade Assurance reduced our overseas procurement risks to zero. We import 20 containers monthly with full confidence."
+                "SOURCEGRID Escrow reduced our overseas procurement risks to zero. We import 20 containers monthly with full confidence."
               </p>
             </div>
           </div>
@@ -466,7 +466,7 @@ export const AuthPage: React.FC = () => {
                       style={{ accentColor: '#ff6600', marginTop: '2px' }}
                     />
                     <span>
-                      I agree to the <strong style={{ color: '#0f172a' }}>Alibaba.com Free Membership Agreement</strong>, Privacy Policy, and Trade Assurance Escrow Terms.
+                      I agree to the <strong style={{ color: '#0f172a' }}>SOURCEGRID Free Membership Agreement</strong>, Privacy Policy, and Escrow Terms.
                     </span>
                   </label>
                 )}

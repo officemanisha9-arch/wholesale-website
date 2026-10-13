@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { Award, Building2, ShieldCheck, CheckCircle2, ArrowRight, Video, FileCheck } from 'lucide-react';
+import { Award, Building2, ShieldCheck, CheckCircle2, ArrowRight, Video, FileCheck, Star, MessageSquare } from 'lucide-react';
 import { SUPPLIERS } from '../../data/suppliers';
 import { useApp } from '../../context/AppContext';
 
@@ -9,34 +9,27 @@ export const VerifiedManufacturersFloor: React.FC = () => {
   const topSuppliers = SUPPLIERS.slice(0, 4);
 
   return (
-    <section style={{ marginBottom: '40px' }}>
+    <section style={{ marginBottom: '44px' }}>
       <div className="container">
         {/* Floor Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+        <div className="section-header-responsive">
+          <div className="section-header-content">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '8px', marginBottom: '8px' }}>
               <span className="badge-verified">
-                <Award size={12} /> VERIFIED FACTORY DIRECT
+                <Award size={13} color="#ff5500" /> VERIFIED FACTORY DIRECT
               </span>
-              <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em' }}>
+              <h2 style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', margin: 0, lineHeight: 1.25 }}>
                 Connect with 34,000+ Inspected Super-Factories
               </h2>
             </div>
-            <p style={{ fontSize: '13.5px', color: '#64748b' }}>
-              Audited on-site by world-leading inspection agencies (TUV Rheinland, SGS, Intertek). Guaranteed capacity and verified ISO export certifications.
+            <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: 1.5 }}>
+              Audited on-site by world-leading inspection agencies (TÜV Rheinland, SGS, Intertek). Guaranteed capacity and verified ISO export certifications.
             </p>
           </div>
 
           <Link
             to="/manufacturers"
-            style={{
-              color: '#ff6600',
-              fontWeight: 700,
-              fontSize: '13px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}
+            className="section-header-link"
           >
             <span>Explore Factory Directory</span>
             <ArrowRight size={15} />
@@ -50,13 +43,13 @@ export const VerifiedManufacturersFloor: React.FC = () => {
               key={sup.id}
               style={{
                 background: '#ffffff',
-                borderRadius: '18px',
+                borderRadius: '20px',
                 border: '1px solid #e2e8f0',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 boxShadow: 'var(--shadow-xs)',
-                transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
+                transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = '#cbd5e1';
@@ -70,7 +63,7 @@ export const VerifiedManufacturersFloor: React.FC = () => {
               }}
             >
               {/* Banner / Factory Video Image */}
-              <div style={{ height: '120px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ height: '130px', position: 'relative', overflow: 'hidden' }}>
                 <img
                   src={sup.bannerImage}
                   alt={sup.name}
@@ -81,12 +74,12 @@ export const VerifiedManufacturersFloor: React.FC = () => {
                     position: 'absolute',
                     top: '10px',
                     left: '10px',
-                    background: 'rgba(15, 23, 42, 0.75)',
+                    background: 'rgba(15, 23, 42, 0.8)',
                     backdropFilter: 'blur(8px)',
                     color: '#fff',
-                    fontSize: '10.5px',
-                    fontWeight: 700,
-                    padding: '3px 8px',
+                    fontSize: '11px',
+                    fontWeight: 800,
+                    padding: '3px 9px',
                     borderRadius: '20px',
                     display: 'flex',
                     alignItems: 'center',
@@ -94,43 +87,44 @@ export const VerifiedManufacturersFloor: React.FC = () => {
                     border: '1px solid rgba(255, 255, 255, 0.2)'
                   }}
                 >
-                  <Video size={11} />
+                  <Video size={12} />
                   <span>360° VR Tour</span>
                 </div>
               </div>
 
               {/* Body */}
-              <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+              <div style={{ padding: '18px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                 <div>
                   {/* Supplier Header */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                     <img
                       src={sup.avatar}
                       alt={sup.name}
-                      style={{ width: '38px', height: '38px', borderRadius: '10px', objectFit: 'cover', border: '1px solid #e2e8f0' }}
+                      style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover', border: '1px solid #e2e8f0' }}
                     />
                     <div style={{ overflow: 'hidden' }}>
-                      <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f172a' }} className="truncate">
+                      <div style={{ fontSize: '13.5px', fontWeight: 800, color: '#0f172a' }} className="truncate">
                         {sup.name}
                       </div>
                       <div style={{ fontSize: '11.5px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '1px' }}>
                         <span>{sup.flag}</span>
                         <span>{sup.city}</span>
+                        <span style={{ color: '#059669', fontWeight: 700 }}>• {sup.responseRate}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Badges & Years */}
                   <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                    <span className="badge-verified" style={{ fontSize: '10px', padding: '2px 7px' }}>{sup.years} YRS Verified</span>
-                    <span className="badge-trade-assurance" style={{ fontSize: '10px', padding: '2px 7px' }}>Trade Assurance</span>
+                    <span className="badge-verified" style={{ fontSize: '10px', padding: '2px 8px' }}>{sup.years} YRS Verified</span>
+                    <span className="badge-trade-assurance" style={{ fontSize: '10px', padding: '2px 8px' }}>Trade Assurance</span>
                   </div>
 
                   {/* Production Stats Table */}
                   <div
                     style={{
                       background: '#f8fafc',
-                      borderRadius: '10px',
+                      borderRadius: '12px',
                       padding: '10px 12px',
                       fontSize: '11.5px',
                       display: 'flex',
@@ -149,8 +143,8 @@ export const VerifiedManufacturersFloor: React.FC = () => {
                       <span style={{ fontWeight: 700, color: '#0f172a' }}>{sup.employees}</span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ color: '#64748b' }}>Response:</span>
-                      <span style={{ fontWeight: 700, color: '#059669' }}>{sup.responseRate}</span>
+                      <span style={{ color: '#64748b' }}>Export Ratio:</span>
+                      <span style={{ fontWeight: 700, color: '#0284c7' }}>92% Global DDP</span>
                     </div>
                   </div>
 
@@ -166,16 +160,17 @@ export const VerifiedManufacturersFloor: React.FC = () => {
                   <button
                     onClick={() => setContactSupplierData({ supplier: sup })}
                     className="btn-primary"
-                    style={{ padding: '7px 0', fontSize: '12px', borderRadius: '10px' }}
+                    style={{ padding: '8px 0', fontSize: '12px', borderRadius: '10px' }}
                   >
                     Send RFQ
                   </button>
                   <button
                     onClick={() => startChatWithSupplier(sup.id, undefined, `Hello! We would like to inquire about your factory's OEM capabilities.`)}
                     className="btn-secondary"
-                    style={{ padding: '7px 0', fontSize: '12px', borderRadius: '10px' }}
+                    style={{ padding: '8px 0', fontSize: '12px', borderRadius: '10px' }}
                   >
-                    Live Chat
+                    <MessageSquare size={13} />
+                    <span>Live Chat</span>
                   </button>
                 </div>
               </div>

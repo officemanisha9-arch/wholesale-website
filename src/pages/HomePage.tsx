@@ -8,7 +8,7 @@ import { QuickRFQWidget } from '../components/home/QuickRFQWidget';
 import { ProductCard } from '../components/products/ProductCard';
 import { PRODUCTS } from '../data/products';
 import { Link } from '@tanstack/react-router';
-import { Sparkles, ArrowRight, ShieldCheck, TrendingUp } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, TrendingUp, Layers, Flame } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const trendingProducts = PRODUCTS.slice(0, 8);
@@ -25,27 +25,27 @@ export const HomePage: React.FC = () => {
       <AlibabaGuaranteedFloor />
 
       {/* 4. Trending B2B Wholesale Recommendations */}
-      <section style={{ marginBottom: '44px' }}>
+      <section style={{ marginBottom: '48px' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+          <div className="section-header-responsive">
+            <div className="section-header-content">
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '8px', marginBottom: '8px' }}>
                 <span className="badge-rts">
-                  <TrendingUp size={12} /> TOP CURATED PICKS
+                  <Flame size={13} color="#ff5500" /> TOP CURATED WHOLESALE PICKS
                 </span>
-                <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em' }}>
+                <h2 style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', margin: 0, lineHeight: 1.25 }}>
                   Recommended for Your Business Sourcing
                 </h2>
               </div>
-              <p style={{ fontSize: '13.5px', color: '#64748b' }}>
+              <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: 1.5 }}>
                 Top-performing wholesale products curated based on global market demand, factory lead times, and verified trade volume.
               </p>
             </div>
             <Link
               to="/products"
-              style={{ color: '#ff6600', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
+              className="section-header-link"
             >
-              <span>Explore All Products</span>
+              <span>Explore All Wholesale Items</span>
               <ArrowRight size={15} />
             </Link>
           </div>

@@ -36,7 +36,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 // Root Layout Component
 const RootLayout: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#f4f5f7' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-app)' }}>
       <Navbar />
       <main style={{ flex: 1 }}>
         <Outlet />

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
-import { Globe, ArrowRight } from 'lucide-react';
+import { Globe, ArrowRight, Sparkles, MapPin } from 'lucide-react';
 
 export const GlobalPavilionsFloor: React.FC = () => {
   const pavilions = [
     {
       country: 'Türkiye Pavilion',
       flag: '🇹🇷',
-      tagline: 'World Capital of Luxury Textiles & Towels',
+      tagline: 'World Capital of Luxury Textiles, Towels & Apparel',
       image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&auto=format&fit=crop&q=80',
       category: 'Home & Textiles',
       suppliersCount: '4,200+'
@@ -15,7 +15,7 @@ export const GlobalPavilionsFloor: React.FC = () => {
     {
       country: 'Vietnam Pavilion',
       flag: '🇻🇳',
-      tagline: 'Eco Wood, Bamboo & Sustainable Packaging',
+      tagline: 'Eco Bamboo, Precision Wood & Sustainable Packaging',
       image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80',
       category: 'Eco Products & Crafts',
       suppliersCount: '3,800+'
@@ -23,7 +23,7 @@ export const GlobalPavilionsFloor: React.FC = () => {
     {
       country: 'Germany Pavilion',
       flag: '🇩🇪',
-      tagline: 'Solar Energy & Heavy Industrial Engineering',
+      tagline: 'Solar CleanTech & Heavy Industrial Engineering',
       image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?w=600&auto=format&fit=crop&q=80',
       category: 'Industrial & CleanTech',
       suppliersCount: '2,100+'
@@ -31,7 +31,7 @@ export const GlobalPavilionsFloor: React.FC = () => {
     {
       country: 'Japan Pavilion',
       flag: '🇯🇵',
-      tagline: 'Precision Tools & Clean Beauty Cosmetics',
+      tagline: 'Precision Tools, Optics & Clean Beauty Cosmetics',
       image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=80',
       category: 'Beauty & High Precision',
       suppliersCount: '1,900+'
@@ -39,25 +39,25 @@ export const GlobalPavilionsFloor: React.FC = () => {
   ];
 
   return (
-    <section style={{ marginBottom: '40px' }}>
+    <section style={{ marginBottom: '44px' }}>
       <div className="container">
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
-          <div>
+        <div className="section-header-responsive">
+          <div className="section-header-content">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-              <Globe size={20} color="#ff6600" />
-              <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em' }}>
+              <Globe size={20} color="#ff5500" style={{ flexShrink: 0 }} />
+              <h2 style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', margin: 0, lineHeight: 1.25 }}>
                 Source by Country &amp; Regional Pavilions
               </h2>
             </div>
-            <p style={{ fontSize: '13.5px', color: '#64748b' }}>
+            <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0, lineHeight: 1.5 }}>
               Connect with specialized regional manufacturing clusters and direct exporter hubs.
             </p>
           </div>
 
           <Link
             to="/products"
-            style={{ color: '#ff6600', fontWeight: 700, fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
+            className="section-header-link"
           >
             <span>View All Regional Pavilions</span>
             <ArrowRight size={15} />
@@ -72,13 +72,13 @@ export const GlobalPavilionsFloor: React.FC = () => {
               to="/products"
               style={{
                 background: '#ffffff',
-                borderRadius: '18px',
+                borderRadius: '20px',
                 border: '1px solid #e2e8f0',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 boxShadow: 'var(--shadow-xs)',
-                transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+                transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
                 textDecoration: 'none'
               }}
               onMouseEnter={e => {
@@ -92,7 +92,7 @@ export const GlobalPavilionsFloor: React.FC = () => {
                 e.currentTarget.style.boxShadow = 'var(--shadow-xs)';
               }}
             >
-              <div style={{ height: '145px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ height: '155px', position: 'relative', overflow: 'hidden' }}>
                 <img
                   src={pav.image}
                   alt={pav.country}
@@ -122,12 +122,14 @@ export const GlobalPavilionsFloor: React.FC = () => {
               </div>
 
               <div style={{ padding: '18px', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
-                <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px', lineHeight: '19px' }}>
+                <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f172a', marginBottom: '6px', lineHeight: '20px' }}>
                   {pav.tagline}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', color: '#64748b', marginTop: '12px', borderTop: '1px solid #f1f5f9', paddingTop: '10px' }}>
-                  <span style={{ color: '#ff6600', fontWeight: 700 }}>{pav.suppliersCount} Exporters</span>
-                  <span style={{ fontWeight: 700, color: '#0f172a' }}>Source Now →</span>
+                  <span style={{ color: '#ff5500', fontWeight: 700 }}>{pav.suppliersCount} Exporters</span>
+                  <span style={{ fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                    Source Now <ArrowRight size={13} />
+                  </span>
                 </div>
               </div>
             </Link>

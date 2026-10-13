@@ -84,11 +84,11 @@ export const PRODUCTS: Product[] = [
         countryFlag: '🇮🇹',
         rating: 5,
         date: '2026-07-29',
-        comment: 'Best supplier I have dealt with on Alibaba. Smooth communication via messenger and fast air express dispatch in 4 days.',
+        comment: 'Best supplier I have dealt with on SOURCEGRID. Smooth communication via messenger and fast air express dispatch in 4 days.',
         verifiedPurchase: true
       }
     ],
-    tags: ['Best Seller', 'Alibaba Guaranteed', 'Fast Dispatch', 'Ready to Ship'],
+    tags: ['Best Seller', 'SourceGrid Guaranteed', 'Fast Dispatch', 'Ready to Ship'],
     createdAt: '2026-01-10'
   },
   {
@@ -376,7 +376,7 @@ export const PRODUCTS: Product[] = [
         verifiedPurchase: true
       }
     ],
-    tags: ['Trending Tech', 'Smart Touch Screen', 'Alibaba Guaranteed', 'High Margin'],
+    tags: ['Trending Tech', 'Smart Touch Screen', 'SourceGrid Guaranteed', 'High Margin'],
     createdAt: '2026-03-01'
   },
   {
@@ -516,7 +516,7 @@ export const PRODUCTS: Product[] = [
         verifiedPurchase: true
       }
     ],
-    tags: ['TikTok Viral', 'US Stock', 'Laser Logo MOQ 50', 'Alibaba Guaranteed'],
+    tags: ['TikTok Viral', 'US Stock', 'Laser Logo MOQ 50', 'SourceGrid Guaranteed'],
     createdAt: '2026-02-10'
   },
   {

@@ -66,7 +66,7 @@ export const CurrencyRegionModal: React.FC = () => {
         </div>
 
         <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px', lineHeight: '20px' }}>
-          Select your shipping country to see accurate freight calculations, delivery lead times, and local tax exemptions. Prices across Alibaba.com will convert in real-time.
+          Select your shipping country to see accurate freight calculations, delivery lead times, and local tax exemptions. Prices across SOURCEGRID will convert in real-time.
         </p>
 
         {/* Search input for country */}

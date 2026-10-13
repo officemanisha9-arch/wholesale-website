@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
-import { Heart, MessageSquare, ShieldCheck, Eye, Zap, Building2, Star, ShoppingCart, CheckCircle2 } from 'lucide-react';
+import { Heart, MessageSquare, ShieldCheck, Eye, Zap, Building2, Star, ShoppingCart, CheckCircle2, ArrowRight } from 'lucide-react';
 import type { Product } from '../../types';
 import { useApp } from '../../context/AppContext';
 
@@ -30,7 +30,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
     e.preventDefault();
     e.stopPropagation();
     addToCart(product, product.moq);
-    showToast('Added to Cart', `Added ${product.moq} ${product.unit} to your sourcing cart.`, 'success');
+    showToast('Added to Cart', `Added ${product.moq} ${product.unit}s to your sourcing cart.`, 'success');
   };
 
   if (layout === 'list') {
@@ -40,18 +40,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
         style={{
           display: 'flex',
           flexDirection: 'row',
-          padding: '18px',
+          padding: '20px',
           gap: '24px',
-          borderRadius: '18px',
+          borderRadius: '20px',
           background: '#ffffff'
         }}
       >
         {/* Image */}
         <div
           style={{
-            width: '200px',
-            height: '200px',
-            borderRadius: '12px',
+            width: '210px',
+            height: '210px',
+            borderRadius: '14px',
             overflow: 'hidden',
             position: 'relative',
             flexShrink: 0,
@@ -77,7 +77,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              border: 'none',
+              cursor: 'pointer'
             }}
           >
             <Heart size={16} color={isFavorited ? '#e11d48' : '#64748b'} fill={isFavorited ? '#e11d48' : 'none'} />
@@ -110,12 +112,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
 
             {/* Price & MOQ */}
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '10px' }}>
-              <span style={{ fontSize: '22px', fontWeight: 800, color: '#ff6600', fontFamily: 'Outfit, sans-serif' }}>
+              <span style={{ fontSize: '22px', fontWeight: 800, color: '#ff5500', fontFamily: 'Outfit, sans-serif' }}>
                 {minPrice === maxPrice ? formatPrice(minPrice) : `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}`}
               </span>
               <span style={{ fontSize: '13px', color: '#64748b' }}>/{product.unit}</span>
               <span style={{ fontSize: '12.5px', color: '#334155', fontWeight: 700, marginLeft: '16px', background: '#f1f5f9', padding: '3px 10px', borderRadius: '12px' }}>
-                MOQ: {product.moq} {product.unit}s
+                MOQ: {product.moq} {product.unit.toLowerCase().endsWith('s') ? product.unit : `${product.unit}s`}
               </span>
             </div>
 
@@ -180,8 +182,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
             zIndex: 5,
+            border: 'none',
+            cursor: 'pointer',
             transition: 'transform 0.15s ease'
           }}
           onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
@@ -213,7 +217,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
             justifyContent: 'center',
             gap: '6px',
             backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.15)'
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            cursor: 'pointer'
           }}
         >
           <Eye size={13} />
@@ -249,21 +254,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
 
           {/* Wholesale Pricing */}
           <div style={{ marginBottom: '8px' }}>
-            <div style={{ fontSize: '19px', fontWeight: 800, color: '#ff6600', fontFamily: 'Outfit, sans-serif' }}>
+            <div style={{ fontSize: '19px', fontWeight: 800, color: '#ff5500', fontFamily: 'Outfit, sans-serif' }}>
               {minPrice === maxPrice ? formatPrice(minPrice) : `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}`}
               <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 500 }}> /{product.unit}</span>
             </div>
             <div style={{ fontSize: '11.5px', color: '#475569', fontWeight: 600, marginTop: '2px' }}>
-              Min. Order: <strong style={{ color: '#0f172a' }}>{product.moq} {product.unit}s</strong>
+              Min. Order: <strong style={{ color: '#0f172a' }}>{product.moq} {product.unit.toLowerCase().endsWith('s') ? product.unit : `${product.unit}s`}</strong>
             </div>
           </div>
         </div>
 
         {/* Supplier Snippet & Action */}
         <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '12px', marginTop: '10px' }}>
-          <div style={{ fontSize: '11px', color: '#64748b', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-            <span className="truncate" style={{ maxWidth: '140px', fontWeight: 500 }}>{product.supplier.name}</span>
-            <span className="badge-verified" style={{ fontSize: '9.5px', padding: '2px 6px' }}>{product.supplier.years} YRS</span>
+          <div style={{ fontSize: '11px', color: '#64748b', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '10px' }}>
+            <span className="truncate" style={{ flex: 1, fontWeight: 500 }}>{product.supplier.name}</span>
+            <span className="badge-verified" style={{ fontSize: '9.5px', padding: '2px 6px', flexShrink: 0 }}>{product.supplier.years} YRS</span>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '8px' }}>
@@ -285,19 +290,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, layout = 'gri
                 borderRadius: '10px',
                 background: '#fff5eb',
                 border: '1px solid #fed7aa',
-                color: '#ff6600',
+                color: '#ff5500',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.15s ease',
+                cursor: 'pointer'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#ff6600';
+                e.currentTarget.style.background = '#ff5500';
                 e.currentTarget.style.color = '#ffffff';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = '#fff5eb';
-                e.currentTarget.style.color = '#ff6600';
+                e.currentTarget.style.color = '#ff5500';
               }}
             >
               <ShoppingCart size={14} />

@@ -12,6 +12,7 @@ import {
   Sparkles,
   Search,
   ChevronRight,
+  ChevronLeft,
   Smile,
   FileText,
   ExternalLink,
@@ -34,6 +35,7 @@ export const MessagesPage: React.FC = () => {
 
   const [inputText, setInputText] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
+  const [showMobileChat, setShowMobileChat] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const activeConv = conversations.find(c => c.id === activeConversationId) || conversations[0];
@@ -93,6 +95,7 @@ export const MessagesPage: React.FC = () => {
           
           {/* Left Conversations Sidebar */}
           <div
+            className={`messenger-sidebar ${showMobileChat ? 'hidden-mobile-view' : ''}`}
             style={{
               borderRight: '1px solid var(--border-color)',
               background: 'var(--bg-card)',
@@ -137,7 +140,10 @@ export const MessagesPage: React.FC = () => {
                 return (
                   <div
                     key={conv.id}
-                    onClick={() => setActiveConversationId(conv.id)}
+                    onClick={() => {
+                      setActiveConversationId(conv.id);
+                      setShowMobileChat(true);
+                    }}
                     style={{
                       padding: '14px 16px',
                       cursor: 'pointer',
@@ -192,6 +198,7 @@ export const MessagesPage: React.FC = () => {
           {/* Right Main Active Chat Window */}
           {activeConv ? (
             <div
+              className={`messenger-chat-pane ${!showMobileChat ? 'hidden-mobile-view' : ''}`}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -214,7 +221,25 @@ export const MessagesPage: React.FC = () => {
                   gap: '8px'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <button
+                    type="button"
+                    onClick={() => setShowMobileChat(false)}
+                    className="mobile-back-btn"
+                    style={{
+                      background: '#f1f5f9',
+                      border: 'none',
+                      padding: '7px',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                    title="Back to Chats"
+                  >
+                    <ChevronLeft size={18} color="#0f172a" />
+                  </button>
+
                   <img
                     src={activeConv.supplier.avatar}
                     alt={activeConv.supplier.name}

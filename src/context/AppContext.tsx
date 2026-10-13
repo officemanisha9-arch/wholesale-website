@@ -757,7 +757,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const logoutUser = () => {
     setCurrentUser(null);
-    showToast('Signed Out', 'You have been logged out of Alibaba.com', 'info');
+    showToast('Signed Out', 'You have been logged out of SOURCEGRID', 'info');
   };
 
   // Cart State
@@ -1361,11 +1361,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       tradeAssuranceProtected: true,
       createdAt: new Date().toISOString().split('T')[0],
       shippingAddress,
-      shippingCarrier: 'Alibaba Verified Logistics (Air DDP Express)',
-      trackingNumber: `ALI-EXP-${Math.floor(100000000 + Math.random() * 900000000)}`,
+      shippingCarrier: 'SourceGrid Verified Logistics (Air DDP Express)',
+      trackingNumber: `GRID-EXP-${Math.floor(100000000 + Math.random() * 900000000)}`,
       estimatedDeliveryDate: new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0],
       timeline: [
-        { status: 'Trade Assurance Order Created', timestamp: 'Just now', completed: true, description: `Order secured with Alibaba Trade Assurance via ${paymentMethod}.` },
+        { status: 'Trade Assurance Order Created', timestamp: 'Just now', completed: true, description: `Order secured with SourceGrid Escrow via ${paymentMethod}.` },
         { status: 'Payment Escrow Confirmed', timestamp: 'Just now', completed: true, description: 'Payment held safely in escrow. Supplier authorized to start production.' },
         { status: 'Production & Quality Inspection', timestamp: 'Estimated in 2 days', completed: false, description: 'Factory preparing goods with packaging & serialization.' },
         { status: 'Dispatch & Carrier Pickup', timestamp: 'Estimated in 3 days', completed: false, description: 'Air express courier assigned.' }

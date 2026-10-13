@@ -70,7 +70,8 @@ export const ManufacturersPage: React.FC = () => {
                 lineHeight: '1.25',
                 marginBottom: '12px',
                 fontFamily: 'Outfit, sans-serif',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                color: '#ffffff'
               }}
             >
               Direct OEM &amp; ODM Super-Manufacturer Directory

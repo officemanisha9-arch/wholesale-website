@@ -183,7 +183,7 @@ export const ContactSupplierModal: React.FC = () => {
           >
             <ShieldCheck size={20} color="#059669" />
             <span>
-              Your order communication and trade transactions are protected under Alibaba Trade Assurance.
+              Your order communication and trade transactions are protected under SourceGrid Escrow Protection.
             </span>
           </div>
 
