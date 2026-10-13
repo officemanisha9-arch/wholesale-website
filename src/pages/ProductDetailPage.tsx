@@ -165,7 +165,7 @@ export const ProductDetailPage: React.FC = () => {
               {/* Badges Over Image */}
               <div style={{ position: 'absolute', top: '14px', left: '14px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {product.alibabaGuaranteed && (
-                  <span className="badge-guaranteed">⭐ Alibaba Guaranteed</span>
+                  <span className="badge-guaranteed">⭐ SourceGrid Guaranteed</span>
                 )}
                 {product.readyToShip && <span className="badge-rts">⚡ Ready to Ship</span>}
                 {product.usLocalStock && <span className="badge-us-stock">🇺🇸 US Local Stock</span>}
@@ -826,10 +826,10 @@ export const ProductDetailPage: React.FC = () => {
 
                   <div style={{ padding: '16px 20px', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
                     <div style={{ fontWeight: 800, fontSize: '14px', color: '#0f172a', marginBottom: '6px' }}>
-                      Q: How does Alibaba Trade Assurance protect my payment?
+                      Q: How does SourceGrid Escrow protect my payment?
                     </div>
                     <div style={{ fontSize: '13px', color: '#475569', lineHeight: '20px' }}>
-                      A: Payments are held safely in escrow by Citibank/Alibaba until you confirm receipt of goods and quality verification. If delivery is delayed or goods do not match specs, you are eligible for a 100% refund.
+                      A: Payments are held safely in escrow by Citibank/SourceGrid until you confirm receipt of goods and quality verification. If delivery is delayed or goods do not match specs, you are eligible for a 100% refund.
                     </div>
                   </div>
                 </div>

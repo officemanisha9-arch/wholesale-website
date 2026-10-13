@@ -143,9 +143,9 @@ export const ProductListingPage: React.FC = () => {
             )}
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '14px' }}>
-            <div>
-              <h1 style={{ fontSize: '26px', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', marginBottom: '4px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '14px', marginBottom: '16px' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h1 style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 800, color: '#0f172a', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.02em', marginBottom: '4px' }}>
                 {activeCategoryObj ? activeCategoryObj.name : queryTerm ? `Results for "${queryTerm}"` : 'Global B2B Wholesale Showroom'}
               </h1>
               <p style={{ fontSize: '13.5px', color: '#64748b', margin: 0 }}>
@@ -156,20 +156,31 @@ export const ProductListingPage: React.FC = () => {
             {/* Mobile Filter Toggle */}
             <button
               onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-              className="btn-secondary"
-              style={{ display: 'none', padding: '8px 14px', fontSize: '13px' }}
+              className="showroom-mobile-filter-btn btn-secondary"
             >
-              <Filter size={14} />
-              <span>Filters ({filteredProducts.length})</span>
+              <Filter size={15} color="#ff5500" />
+              <span>{isMobileFilterOpen ? 'Hide Filters' : `Filters (${filteredProducts.length})`}</span>
             </button>
           </div>
         </div>
 
+        {/* Mobile Collapsible Filter Sidebar */}
+        {isMobileFilterOpen && (
+          <div className="showroom-sidebar-mobile" style={{ marginBottom: '20px' }}>
+            <FilterSidebar
+              filters={filters}
+              onFilterChange={setFilters}
+              onReset={handleResetFilters}
+              totalResults={filteredProducts.length}
+            />
+          </div>
+        )}
+
         {/* Main Grid Layout (Sidebar + Products) */}
         <div className="showroom-layout">
           
-          {/* Left Filter Sidebar */}
-          <div>
+          {/* Left Filter Sidebar (Desktop) */}
+          <div className="showroom-sidebar-desktop">
             <FilterSidebar
               filters={filters}
               onFilterChange={setFilters}

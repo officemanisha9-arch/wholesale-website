@@ -134,7 +134,7 @@ export const CheckoutPage: React.FC = () => {
   const [appliedVoucherLabel, setAppliedVoucherLabel] = useState('GLOBAL-SOURCING-50');
 
   const presetVouchers = [
-    { code: 'ALIBABA100', discount: 100, label: 'VIP $100 Off' },
+    { code: 'SOURCEGRID100', discount: 100, label: 'VIP $100 Off' },
     { code: 'VIPGLOBAL', discount: 75, label: '$75 Sourcing Off' },
     { code: 'EXPO2026', discount: 50, label: '$50 Expo Off' }
   ];
@@ -151,7 +151,7 @@ export const CheckoutPage: React.FC = () => {
     e.preventDefault();
     if (!couponCode.trim()) return;
     const clean = couponCode.trim().toUpperCase();
-    if (clean === 'ALIBABA100' || clean === 'GLOBAL100') {
+    if (clean === 'SOURCEGRID100' || clean === 'GLOBAL100') {
       setAppliedDiscount(100);
       setIsCouponApplied(true);
       setAppliedVoucherLabel(clean);
@@ -254,7 +254,7 @@ export const CheckoutPage: React.FC = () => {
           : paymentMethod === 'wire_transfer'
           ? 'International T/T Wire (Citibank Escrow)'
           : paymentMethod === 'pay_later'
-          ? 'Alibaba Pay Later (Net 60 Financing)'
+          ? 'SourceGrid Pay Later (Net 60 Financing)'
           : 'PayPal Commercial Verified'
       );
 
@@ -730,7 +730,7 @@ export const CheckoutPage: React.FC = () => {
                       />
                       <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
-                          <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>Alibaba Pay Later (Net 60 Business Credit)</strong>
+                          <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>SourceGrid Pay Later (Net 60 Business Credit)</strong>
                           <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Pay 60 days post-dispatch • Available credit: $42,500.00</div>
                         </div>
                         <span style={{ fontSize: '10px', background: '#fdf2f8', color: '#be185d', padding: '2px 8px', borderRadius: '6px', fontWeight: 800 }}>
@@ -792,7 +792,7 @@ export const CheckoutPage: React.FC = () => {
                       type="text"
                       value={couponCode}
                       onChange={e => setCouponCode(e.target.value)}
-                      placeholder="Voucher Code: ALIBABA100"
+                      placeholder="Voucher Code: SOURCEGRID100"
                       style={{ flex: 1, padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--border-color)', fontSize: '12px', background: 'var(--bg-app)', color: 'var(--text-primary)', outline: 'none' }}
                     />
                     <button

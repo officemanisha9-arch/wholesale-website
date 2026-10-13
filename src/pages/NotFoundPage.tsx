@@ -39,7 +39,7 @@ export const NotFoundPage: React.FC = () => {
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
             <Link to="/" className="btn-primary" style={{ padding: '10px 24px' }}>
               <Home size={16} />
-              <span>Back to Alibaba Home</span>
+              <span>Back to SOURCEGRID Home</span>
             </Link>
             <Link to="/products" className="btn-secondary" style={{ padding: '10px 20px' }}>
               <Search size={16} />

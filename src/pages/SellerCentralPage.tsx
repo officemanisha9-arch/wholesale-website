@@ -653,7 +653,7 @@ export const SellerCentralPage: React.FC = () => {
                     Factory Featured Catalog ({products.length} Items Live)
                   </h3>
                   <p style={{ fontSize: '12px', color: '#64748b', margin: 0 }}>
-                    Directly listed in Alibaba.com global wholesale showroom with OEM/ODM tiers.
+                    Directly listed in SOURCEGRID global wholesale showroom with OEM/ODM tiers.
                   </p>
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
@@ -1364,72 +1364,117 @@ export const SellerCentralPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Price Tiers */}
-                <div style={{ background: '#f8fafc', padding: '14px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-                    Wholesale Tiered Pricing Matrix ($ USD):
-                  </label>
-                  <div className="grid-cols-3-responsive" style={{ gap: '10px' }}>
-                    <div>
-                      <span style={{ fontSize: '11px', color: '#64748b' }}>Tier 1 (MOQ):</span>
-                      <div style={{ display: 'flex', gap: '4px', marginTop: '2px' }}>
-                        <input
-                          type="number"
-                          value={productForm.tier1Qty}
-                          onChange={e => setProductForm({ ...productForm, tier1Qty: Number(e.target.value), moq: Number(e.target.value) })}
-                          placeholder="Min Qty"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
-                        <input
-                          type="number"
-                          step="0.01"
-                          value={productForm.tier1Price}
-                          onChange={e => setProductForm({ ...productForm, tier1Price: Number(e.target.value) })}
-                          placeholder="$ Price"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
+                {/* Price Tiers Matrix */}
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: 800, color: '#0f172a' }}>
+                      Wholesale Tiered Pricing Matrix
+                    </label>
+                    <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 600 }}>Currency: USD ($)</span>
+                  </div>
+                  <div className="grid-cols-3-responsive" style={{ gap: '12px' }}>
+                    {/* Tier 1 Card */}
+                    <div style={{ background: '#ffffff', padding: '12px 14px', borderRadius: '10px', border: '1.5px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                        <span style={{ fontSize: '12px', fontWeight: 800, color: '#0f172a' }}>Tier 1 (MOQ)</span>
+                        <span style={{ fontSize: '10px', padding: '2px 6px', background: '#eff6ff', color: '#2563eb', borderRadius: '4px', fontWeight: 700 }}>Base MOQ</span>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Min Qty ({productForm.unit}):
+                          </label>
+                          <input
+                            type="number"
+                            value={productForm.tier1Qty}
+                            onChange={e => setProductForm({ ...productForm, tier1Qty: Number(e.target.value), moq: Number(e.target.value) })}
+                            placeholder="e.g. 50"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 600 }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Unit Price ($ USD):
+                          </label>
+                          <input
+                            type="number"
+                            step="0.01"
+                            value={productForm.tier1Price}
+                            onChange={e => setProductForm({ ...productForm, tier1Price: Number(e.target.value) })}
+                            placeholder="e.g. 15.00"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 800, color: '#ff6600' }}
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <span style={{ fontSize: '11px', color: '#64748b' }}>Tier 2 (Mid Vol):</span>
-                      <div style={{ display: 'flex', gap: '4px', marginTop: '2px' }}>
-                        <input
-                          type="number"
-                          value={productForm.tier2Qty}
-                          onChange={e => setProductForm({ ...productForm, tier2Qty: Number(e.target.value) })}
-                          placeholder="Min Qty"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
-                        <input
-                          type="number"
-                          step="0.01"
-                          value={productForm.tier2Price}
-                          onChange={e => setProductForm({ ...productForm, tier2Price: Number(e.target.value) })}
-                          placeholder="$ Price"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
+                    {/* Tier 2 Card */}
+                    <div style={{ background: '#ffffff', padding: '12px 14px', borderRadius: '10px', border: '1.5px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                        <span style={{ fontSize: '12px', fontWeight: 800, color: '#0f172a' }}>Tier 2 (Mid Vol)</span>
+                        <span style={{ fontSize: '10px', padding: '2px 6px', background: '#fef3c7', color: '#d97706', borderRadius: '4px', fontWeight: 700 }}>Volume Saver</span>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Min Qty ({productForm.unit}):
+                          </label>
+                          <input
+                            type="number"
+                            value={productForm.tier2Qty}
+                            onChange={e => setProductForm({ ...productForm, tier2Qty: Number(e.target.value) })}
+                            placeholder="e.g. 200"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 600 }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Unit Price ($ USD):
+                          </label>
+                          <input
+                            type="number"
+                            step="0.01"
+                            value={productForm.tier2Price}
+                            onChange={e => setProductForm({ ...productForm, tier2Price: Number(e.target.value) })}
+                            placeholder="e.g. 12.50"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 800, color: '#ff6600' }}
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <span style={{ fontSize: '11px', color: '#64748b' }}>Tier 3 (Bulk):</span>
-                      <div style={{ display: 'flex', gap: '4px', marginTop: '2px' }}>
-                        <input
-                          type="number"
-                          value={productForm.tier3Qty}
-                          onChange={e => setProductForm({ ...productForm, tier3Qty: Number(e.target.value) })}
-                          placeholder="Min Qty"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
-                        <input
-                          type="number"
-                          step="0.01"
-                          value={productForm.tier3Price}
-                          onChange={e => setProductForm({ ...productForm, tier3Price: Number(e.target.value) })}
-                          placeholder="$ Price"
-                          style={{ width: '50%', padding: '6px 8px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12px' }}
-                        />
+                    {/* Tier 3 Card */}
+                    <div style={{ background: '#ffffff', padding: '12px 14px', borderRadius: '10px', border: '1.5px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.02)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                        <span style={{ fontSize: '12px', fontWeight: 800, color: '#0f172a' }}>Tier 3 (Bulk High Vol)</span>
+                        <span style={{ fontSize: '10px', padding: '2px 6px', background: '#ecfdf5', color: '#059669', borderRadius: '4px', fontWeight: 700 }}>Best Value</span>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Min Qty ({productForm.unit}):
+                          </label>
+                          <input
+                            type="number"
+                            value={productForm.tier3Qty}
+                            onChange={e => setProductForm({ ...productForm, tier3Qty: Number(e.target.value) })}
+                            placeholder="e.g. 500"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 600 }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '11px', color: '#64748b', fontWeight: 600, marginBottom: '3px' }}>
+                            Unit Price ($ USD):
+                          </label>
+                          <input
+                            type="number"
+                            step="0.01"
+                            value={productForm.tier3Price}
+                            onChange={e => setProductForm({ ...productForm, tier3Price: Number(e.target.value) })}
+                            placeholder="e.g. 10.00"
+                            style={{ width: '100%', padding: '7px 10px', borderRadius: '6px', border: '1px solid #cbd5e1', fontSize: '12.5px', fontWeight: 800, color: '#ff6600' }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

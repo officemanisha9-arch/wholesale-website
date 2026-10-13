@@ -435,10 +435,10 @@ export const RFQPage: React.FC = () => {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#059669', fontWeight: 800, fontSize: '13px', marginBottom: '6px' }}>
                       <ShieldCheck size={18} />
-                      <span>Alibaba Trade Assurance Guaranteed</span>
+                      <span>SourceGrid Escrow Guaranteed</span>
                     </div>
                     <p style={{ fontSize: '12px', color: '#065f46', lineHeight: '20px', margin: 0 }}>
-                      Every RFQ transaction finalized on Alibaba.com is covered by secure payment escrow, verified supplier on-time dispatch guarantee, and 30-day dispute protection.
+                      Every RFQ transaction finalized on SOURCEGRID is covered by secure payment escrow, verified supplier on-time dispatch guarantee, and 30-day dispute protection.
                     </p>
                   </div>
 

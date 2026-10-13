@@ -82,14 +82,14 @@ export const AuthModal: React.FC = () => {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
               <div style={{ fontSize: '22px', fontWeight: 900, color: '#ffffff', fontFamily: 'Outfit, sans-serif' }}>
-                Alibaba<span style={{ color: '#0f172a' }}>.com</span>
+                SOURCE<span style={{ color: '#0f172a' }}>GRID</span>
               </div>
               <span style={{ fontSize: '10px', background: '#0f172a', color: '#fff', padding: '2px 6px', borderRadius: '4px', fontWeight: 800 }}>
                 GLOBAL B2B
               </span>
             </div>
             <p style={{ fontSize: '12px', color: '#ffedd5', margin: 0 }}>
-              {tab === 'signin' ? 'Sign in to access Trade Assurance wholesale escrow' : 'Create free account to source from 200K+ factories'}
+              {tab === 'signin' ? 'Sign in to access SourceGrid wholesale escrow' : 'Create free account to source from 200K+ factories'}
             </p>
           </div>
 
@@ -305,7 +305,7 @@ export const AuthModal: React.FC = () => {
               className="btn-primary"
               style={{ width: '100%', padding: '11px 0', fontSize: '14px', fontWeight: 800, marginTop: '6px' }}
             >
-              <span>{isLoading ? 'Authenticating...' : tab === 'signin' ? 'Sign In to Alibaba.com' : 'Join Free as Enterprise Member'}</span>
+              <span>{isLoading ? 'Authenticating...' : tab === 'signin' ? 'Sign In to SOURCEGRID' : 'Join Free as Enterprise Member'}</span>
               <ArrowRight size={15} />
             </button>
           </form>

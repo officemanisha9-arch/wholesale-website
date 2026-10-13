@@ -11,7 +11,9 @@ import {
   Award,
   DollarSign,
   ArrowRight,
-  Shield
+  Shield,
+  Lock,
+  Boxes
 } from 'lucide-react';
 
 export const BuyerCentralPage: React.FC = () => {
@@ -21,12 +23,12 @@ export const BuyerCentralPage: React.FC = () => {
         {/* Banner */}
         <div
           style={{
-            background: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)',
+            background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%)',
             borderRadius: '24px',
             padding: '44px 48px',
             color: '#ffffff',
             marginBottom: '36px',
-            boxShadow: '0 20px 40px -15px rgba(6, 78, 59, 0.4)',
+            boxShadow: 'var(--shadow-md)',
             position: 'relative',
             overflow: 'hidden',
             border: '1px solid rgba(255, 255, 255, 0.12)'
@@ -41,22 +43,22 @@ export const BuyerCentralPage: React.FC = () => {
               width: '360px',
               height: '360px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(167, 243, 208, 0.25) 0%, rgba(167, 243, 208, 0) 70%)',
+              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%)',
               pointerEvents: 'none'
             }}
           />
 
-          <div style={{ maxWidth: '680px', position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: '700px', position: 'relative', zIndex: 2 }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.12)',
                 color: '#ecfdf5',
-                fontSize: '11px',
+                fontSize: '11.5px',
                 fontWeight: 800,
-                padding: '4px 12px',
+                padding: '4px 14px',
                 borderRadius: '999px',
                 marginBottom: '14px',
                 letterSpacing: '0.4px',
@@ -66,7 +68,7 @@ export const BuyerCentralPage: React.FC = () => {
               }}
             >
               <ShieldCheck size={14} />
-              <span>Alibaba.com Buyer Central</span>
+              <span>SOURCEGRID BUYER PROTECTION HUB</span>
             </div>
 
             <h1
@@ -79,19 +81,19 @@ export const BuyerCentralPage: React.FC = () => {
                 letterSpacing: '-0.5px'
               }}
             >
-              Source with Confidence: The Complete Trade Assurance Guide
+              Source with Total Security: The SourceGrid Escrow Protocol
             </h1>
 
-            <p style={{ fontSize: '15px', color: '#a7f3d0', lineHeight: '24px', marginBottom: '28px' }}>
-              Every transaction completed through Alibaba.com is covered by our end-to-end buyer protection program, protecting your capital from factory deposit to final warehouse delivery.
+            <p style={{ fontSize: '15px', color: '#cbd5e1', lineHeight: '24px', marginBottom: '28px' }}>
+              Every wholesale order placed on SOURCEGRID is protected under our Citibank Escrow infrastructure—protecting your capital from factory tooling to final port clearance and QA inspection.
             </p>
 
             <Link
               to="/products"
               className="btn-primary"
-              style={{ padding: '12px 28px', fontSize: '14px', background: '#ffffff', color: '#064e3b', borderRadius: '12px', fontWeight: 800, boxShadow: '0 4px 14px rgba(0,0,0,0.1)' }}
+              style={{ padding: '12px 28px', fontSize: '14px' }}
             >
-              <span>Explore Trade Assurance Showroom</span>
+              <span>Explore Protected Products</span>
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -99,95 +101,95 @@ export const BuyerCentralPage: React.FC = () => {
 
         {/* 4 Pillars Grid */}
         <div className="grid-cols-4-responsive" style={{ marginBottom: '40px', gap: '18px' }}>
-          <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
+          <div style={{ background: '#ffffff', padding: '24px', borderRadius: '18px', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-xs)' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <ShieldCheck size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
-              1. Payment Escrow
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+              1. Citibank Escrow
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '20px', margin: 0 }}>
-              Your funds are held in secure escrow by Citibank. Suppliers only receive payment after you inspect and accept the shipment.
+            <p style={{ fontSize: '12.5px', color: '#64748b', lineHeight: '20px', margin: 0 }}>
+              Your deposit and milestone payments are locked safely in escrow. Suppliers receive funds only after QA inspection passes.
             </p>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#fff7ed', color: '#ff6600', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+          <div style={{ background: '#ffffff', padding: '24px', borderRadius: '18px', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-xs)' }}>
+            <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#fff5eb', color: '#ff5500', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <RotateCcw size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
-              2. Money-Back Guarantee
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+              2. 100% Refund Guarantee
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '20px', margin: 0 }}>
-              If product quality deviates from the contract or samples, Alibaba guarantees a 100% refund.
+            <p style={{ fontSize: '12.5px', color: '#64748b', lineHeight: '20px', margin: 0 }}>
+              If physical bulk goods deviate from approved golden sample specs or tolerance standards, SourceGrid issues a full refund.
             </p>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
+          <div style={{ background: '#ffffff', padding: '24px', borderRadius: '18px', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-xs)' }}>
             <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#eff6ff', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <Clock size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
               3. On-Time Dispatch
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '20px', margin: 0 }}>
-              Suppliers must ship within the agreed contract date. If delayed, you receive an automated 10% cash compensation.
+            <p style={{ fontSize: '12.5px', color: '#64748b', lineHeight: '20px', margin: 0 }}>
+              Factories must dispatch cargo by the contract milestone date or you receive an automated 10% cash compensation.
             </p>
           </div>
 
-          <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: '18px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#fdf2f8', color: '#db2777', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+          <div style={{ background: '#ffffff', padding: '24px', borderRadius: '18px', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-xs)' }}>
+            <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: '#f5f3ff', color: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
               <Headphones size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
-              4. 30-Day Claims Team
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0f172a', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>
+              4. 24/7 Trade Arbitration
             </h3>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '20px', margin: 0 }}>
-              Access our specialized international trade dispute team within 30 days of receiving your bulk goods.
+            <p style={{ fontSize: '12.5px', color: '#64748b', lineHeight: '20px', margin: 0 }}>
+              Access our neutral legal arbitration panel within 30 days of receiving your cargo for immediate settlement.
             </p>
           </div>
         </div>
 
         {/* Step-by-step How Sourcing Works */}
-        <div style={{ background: 'var(--bg-card)', borderRadius: '20px', padding: '36px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-sm)' }}>
-          <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '28px', textAlign: 'center', fontFamily: 'Outfit, sans-serif' }}>
-            How Sourcing on Alibaba.com Works in 4 Simple Steps
+        <div style={{ background: '#ffffff', borderRadius: '20px', padding: '36px', border: '1px solid #e2e8f0', boxShadow: 'var(--shadow-sm)' }}>
+          <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', marginBottom: '28px', textAlign: 'center', fontFamily: 'Outfit, sans-serif' }}>
+            How Sourcing on SOURCEGRID Works in 4 Simple Steps
           </h2>
 
           <div className="grid-cols-4-responsive" style={{ gap: '24px' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff6600', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 102, 0, 0.25)' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff5500', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 85, 0, 0.25)' }}>
                 1
               </div>
-              <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
-                Search &amp; Match
+              <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
+                Search &amp; GridAI
               </h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '18px', margin: 0 }}>
-                Use our search engine, Accio AI, or post an RFQ to match verified OEM manufacturers.
+              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '18px', margin: 0 }}>
+                Use our search engine, GridAI BoM estimator, or post an RFQ to match audited OEM manufacturers.
               </p>
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff6600', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 102, 0, 0.25)' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff5500', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 85, 0, 0.25)' }}>
                 2
               </div>
-              <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
+              <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
                 Sample &amp; Negotiate
               </h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '18px', margin: 0 }}>
-                Order pre-production evaluation samples and finalize pricing with live messenger.
+              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '18px', margin: 0 }}>
+                Order pre-production evaluation samples and finalize specifications via encrypted messenger.
               </p>
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff6600', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 102, 0, 0.25)' }}>
+              <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#ff5500', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(255, 85, 0, 0.25)' }}>
                 3
               </div>
-              <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
+              <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
                 Contract &amp; Escrow
               </h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '18px', margin: 0 }}>
-                Sign digital Trade Assurance contract and lock funds safely in escrow.
+              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '18px', margin: 0 }}>
+                Sign digital Trade Assurance contract and lock funds safely in Citibank escrow.
               </p>
             </div>
 
@@ -195,11 +197,11 @@ export const BuyerCentralPage: React.FC = () => {
               <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#059669', color: '#fff', fontWeight: 800, fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px auto', boxShadow: '0 4px 12px rgba(5, 150, 105, 0.25)' }}>
                 4
               </div>
-              <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
+              <h4 style={{ fontSize: '15px', fontWeight: 800, color: '#0f172a', marginBottom: '6px', fontFamily: 'Outfit, sans-serif' }}>
                 Inspect &amp; Deliver
               </h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '18px', margin: 0 }}>
-                Monitor production, receive DDP customs cleared delivery, and release payment.
+              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '18px', margin: 0 }}>
+                Monitor production, receive DDP customs cleared delivery, and release final payment.
               </p>
             </div>
           </div>
@@ -208,4 +210,3 @@ export const BuyerCentralPage: React.FC = () => {
     </div>
   );
 };
-

@@ -61,7 +61,7 @@ export const ImageSearchModal: React.FC = () => {
               <Camera size={20} />
             </div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'Outfit, sans-serif' }}>
-              Alibaba Lens Visual Sourcing
+              GridAI Visual &amp; CAD Sourcing
             </h3>
           </div>
           <button
